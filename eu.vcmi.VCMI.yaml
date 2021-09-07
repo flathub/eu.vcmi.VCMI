@@ -15,7 +15,6 @@ finish-args:
 modules:
   # For dependencies cf.
   # https://github.com/vcmi/vcmi/blob/develop/CI/linux/before_install.sh
-  
   - name: boost
     buildsystem: simple
     build-commands:
@@ -23,19 +22,19 @@ modules:
       - ./b2
       - ./b2 install
     sources:
-      - sha256: bd0df411efd9a585e5a2212275f8762079fed8842264954675a4fddc46cfcf60
+      - sha256: fc9f85fc030e233142908241af7a846e60630aa7388de9a5fafb1f3a26840854
         type: archive
-        url: https://boostorg.jfrog.io/artifactory/main/release/1.66.0/source/boost_1_66_0.tar.gz
+        url: https://boostorg.jfrog.io/artifactory/main/release/1.77.0/source/boost_1_77_0.tar.bz2
         x-checker-data:
           type: anitya
           project-id: 6845
           stable-only: true
           url-template: https://boostorg.jfrog.io/artifactory/main/release/$version/source/boost_${major}_${minor}_$patch.tar.bz2
-          
+
   - name: onetbb
     buildsystem: cmake-ninja
     config-opts:
-        - -Wno-dev
+      - -Wno-dev
     sources:
       - type: archive
         url: https://github.com/oneapi-src/oneTBB/archive/refs/tags/v2021.3.0.tar.gz
@@ -45,7 +44,7 @@ modules:
           project-id: 227581
           stable-only: true
           url-template: https://github.com/oneapi-src/oneTBB/archive/refs/tags/v$version.tar.gz
-      
+
   - name: luajit
     no-autogen: true
     sources:
@@ -59,15 +58,15 @@ modules:
       - type: shell
         commands:
           - sed -i 's|/usr/local|/app|g' Makefile
-        
+
   - name: vcmi
     buildsystem: cmake-ninja
     config-opts:
-        - -Wno-dev
+      - -Wno-dev
     sources:
       - type: git
         url: https://github.com/vcmi/vcmi
         branch: develop
-        commit: ba7c9d70216f2fd34183a95da4980f3aff78e007
+        commit: 2f450f6592ef7b191ad0406fce1f51f70d59d1d4
     post-install:
       - cp -r /app/lib/vcmi/* /app/lib
