@@ -67,6 +67,6 @@ modules:
       - type: git
         url: https://github.com/vcmi/vcmi
         branch: develop
-        commit: 2f450f6592ef7b191ad0406fce1f51f70d59d1d4
+        commit: 7f175c7f1986511deeb189239299d70b4064662b
     post-install:
       - cp -r /app/lib/vcmi/* /app/lib
