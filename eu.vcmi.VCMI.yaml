@@ -70,6 +70,6 @@ modules:
         commit: 7f175c7f1986511deeb189239299d70b4064662b
       - type: shell
         commands:
-        - sed -i "s|</description>|<p>To play VCMI you will need copy the 'Data', 'Maps' and 'Mp3' folders from Heroes III to '.var/app/eu.vcmi.VCMI/data/vcmi'</p></description>|" launcher/eu.vcmi.VCMI.metainfo.xml
+        - sed -i "s|</description>|<p>To play VCMI you will need copy the 'Data', 'Maps' and 'Mp3' folders from Heroes III to '~/.var/app/eu.vcmi.VCMI/data/vcmi'</p></description>|" launcher/eu.vcmi.VCMI.metainfo.xml
     post-install:
       - cp -r /app/lib/vcmi/* /app/lib
