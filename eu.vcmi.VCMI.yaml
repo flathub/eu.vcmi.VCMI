@@ -37,8 +37,8 @@ modules:
       - -Wno-dev
     sources:
       - type: archive
-        url: https://github.com/oneapi-src/oneTBB/archive/refs/tags/v2021.3.0.tar.gz
-        sha256: 8f616561603695bbb83871875d2c6051ea28f8187dbe59299961369904d1d49e
+        url: https://github.com/oneapi-src/oneTBB/archive/refs/tags/v2021.4.0.tar.gz
+        sha256: 021796c7845e155e616f5ecda16daa606ebb4c6f90b996e5c08aebab7a8d3de3
         x-checker-data:
           type: anitya
           project-id: 227581
@@ -70,6 +70,8 @@ modules:
         commit: 7f175c7f1986511deeb189239299d70b4064662b
       - type: shell
         commands:
-        - sed -i "s|</description>|<p>To play VCMI you will need to copy the 'Data', 'Maps' and 'Mp3' folders from Heroes III to '~/.var/app/eu.vcmi.VCMI/data/vcmi'</p></description>|" launcher/eu.vcmi.VCMI.metainfo.xml
+          - sed -i "s|</description>|<p>To play VCMI you will need to copy the 'Data',
+            'Maps' and 'Mp3' folders from Heroes III to '~/.var/app/eu.vcmi.VCMI/data/vcmi'</p></description>|"
+            launcher/eu.vcmi.VCMI.metainfo.xml
     post-install:
       - cp -r /app/lib/vcmi/* /app/lib
