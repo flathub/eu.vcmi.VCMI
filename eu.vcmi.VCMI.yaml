@@ -67,7 +67,7 @@ modules:
       - type: git
         url: https://github.com/vcmi/vcmi
         branch: develop
-        commit: 569db9ed5d53d9304676d66cefa188ec19cb187b
+        commit: bfd57ab5b5cc32930138871551eb2f23e168e28c
       - type: shell
         commands:
           - sed -i "s|</description>|<p>To play VCMI you will need to copy the 'Data',
