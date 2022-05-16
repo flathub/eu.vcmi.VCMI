@@ -31,6 +31,33 @@ modules:
           stable-only: true
           url-template: https://boostorg.jfrog.io/artifactory/main/release/$version/source/boost_${major}_${minor}_$patch.tar.bz2
 
+  - name: minizip
+    subdir: contrib/minizip
+    sources:
+      - sha256: 7db46b8d7726232a621befaab4a1c870f00a90805511c0e0090441dac57def18
+        type: archive
+        url: https://zlib.net/zlib-1.2.12.tar.xz
+        x-checker-data:
+          type: anitya
+          project-id: 5303
+          stable-only: true
+          url-template: https://zlib.net/zlib-${major}.${minor}.$patch.tar.xz
+      - type: shell
+        commands:
+          - rm contrib/minizip/Makefile
+          - cd contrib/minizip && autoreconf --install
+
+  - name: hwloc
+    sources:
+      - sha256: 0d4e1d36c3a72c5d61901bfd477337f5a4c7e0a975da57165237d00e35ef528d
+        type: archive
+        url: https://download.open-mpi.org/release/hwloc/v2.7/hwloc-2.7.1.tar.bz2
+        x-checker-data:
+          type: anitya
+          project-id: 13501
+          stable-only: true
+          url-template: https://download.open-mpi.org/release/hwloc/v${major}.${minor}/hwloc-${major}.${minor}.$patch.tar.bz2
+
   - name: onetbb
     buildsystem: cmake-ninja
     config-opts:
@@ -59,19 +86,29 @@ modules:
         commands:
           - sed -i 's|/usr/local|/app|g' Makefile
 
+  - name: fuzzylite
+    subdir: fuzzylite
+    buildsystem: cmake-ninja
+    sources:
+      - type: git
+        url: https://github.com/fuzzylite/fuzzylite.git
+        branch: release
+
   - name: vcmi
     buildsystem: cmake-ninja
     config-opts:
+      - -DFORCE_BUNDLED_FL=OFF
+      - -DLIB_DIR=lib
+      - -DENABLE_TEST=0
       - -Wno-dev
     sources:
       - type: git
         url: https://github.com/vcmi/vcmi
         branch: develop
         commit: 55b8aac63e6a24ae94a68096193aaae9fd02dc12
+        disable-submodules: true
       - type: shell
         commands:
           - sed -i "s|</description>|<p>To play VCMI you will need to copy the 'Data',
             'Maps' and 'Mp3' folders from Heroes III to '~/.var/app/eu.vcmi.VCMI/data/vcmi'</p></description>|"
             launcher/eu.vcmi.VCMI.metainfo.xml
-    post-install:
-      - cp -r /app/lib/vcmi/* /app/lib
