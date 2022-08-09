@@ -75,13 +75,11 @@ modules:
   - name: luajit
     no-autogen: true
     sources:
-      - type: archive
-        url: https://luajit.org/download/LuaJIT-2.1.0-beta3.tar.gz
-        sha256: 1ad2e34b111c802f9d0cdf019e986909123237a28c746b21295b63c9e785d9c3
-        x-checker-data:
-          type: anitya
-          project-id: 6444
-          url-template: https://luajit.org/download/LuaJIT-$version.tar.gz
+      # LuaJIT is using a rolling release model:
+      # https://github.com/LuaJIT/LuaJIT/issues/563
+      - type: git
+        url: https://github.com/LuaJIT/LuaJIT
+        branch: v2.1
       - type: shell
         commands:
           - sed -i 's|/usr/local|/app|g' Makefile
@@ -105,7 +103,7 @@ modules:
       - type: git
         url: https://github.com/vcmi/vcmi
         branch: develop
-        commit: 55b8aac63e6a24ae94a68096193aaae9fd02dc12
+        commit: c0825149cf4cc0d1e44d1bd2858032a7f79f3a63
         disable-submodules: true
       - type: shell
         commands:
