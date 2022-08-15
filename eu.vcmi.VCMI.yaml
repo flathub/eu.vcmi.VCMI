@@ -103,7 +103,7 @@ modules:
       - type: git
         url: https://github.com/vcmi/vcmi
         branch: develop
-        commit: c0825149cf4cc0d1e44d1bd2858032a7f79f3a63
+        commit: ff00747ecf2d5fe1a2e026483b819d53e3cbfed0
         disable-submodules: true
       - type: shell
         commands:
