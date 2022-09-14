@@ -100,11 +100,14 @@ modules:
       - -DENABLE_TEST=0
       - -Wno-dev
     sources:
-      - type: git
-        url: https://github.com/vcmi/vcmi
-        branch: develop
-        commit: 627b63ca56825a0168ccfd2bad4c1a76ebbf8049
-        disable-submodules: true
+      - type: archive
+        url: https://github.com/vcmi/vcmi/archive/refs/tags/1.0.0.tar.gz
+        sha256: 1033f69c55f2f7d071ea5f278f41d5f97abe9087e339718569681a3f46a0e7d0
+        x-checker-data:
+          type: anitya
+          project-id: 5456
+          stable-only: true
+          url-template: https://github.com/vcmi/vcmi/archive/refs/tags/$version.tar.gz
       - type: shell
         commands:
           - sed -i "s|</description>|<p>To play VCMI you will need to copy the 'Data',
