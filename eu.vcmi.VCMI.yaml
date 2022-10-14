@@ -34,9 +34,9 @@ modules:
   - name: minizip
     subdir: contrib/minizip
     sources:
-      - sha256: 7db46b8d7726232a621befaab4a1c870f00a90805511c0e0090441dac57def18
+      - sha256: d14c38e313afc35a9a8760dadf26042f51ea0f5d154b0630a31da0540107fb98
         type: archive
-        url: https://zlib.net/zlib-1.2.12.tar.xz
+        url: https://zlib.net/zlib-1.2.13.tar.xz
         x-checker-data:
           type: anitya
           project-id: 5303
@@ -64,8 +64,8 @@ modules:
       - -Wno-dev
     sources:
       - type: archive
-        url: https://github.com/oneapi-src/oneTBB/archive/refs/tags/v2021.6.0.tar.gz
-        sha256: 4897dd106d573e9dacda8509ca5af1a0e008755bf9c383ef6777ac490223031f
+        url: https://github.com/oneapi-src/oneTBB/archive/refs/tags/v2021.7.0.tar.gz
+        sha256: 2cae2a80cda7d45dc7c072e4295c675fff5ad8316691f26f40539f7e7e54c0cc
         x-checker-data:
           type: anitya
           project-id: 227581
