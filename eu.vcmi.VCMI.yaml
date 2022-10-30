@@ -80,6 +80,7 @@ modules:
       - type: git
         url: https://github.com/LuaJIT/LuaJIT
         branch: v2.1
+        commit: 6c4826f12c4d33b8b978004bc681eb1eef2be977
       - type: shell
         commands:
           - sed -i 's|/usr/local|/app|g' Makefile
@@ -91,6 +92,7 @@ modules:
       - type: git
         url: https://github.com/fuzzylite/fuzzylite.git
         branch: release
+        commit: 7aee562d6ca17f3cf42588ffb5116e03017c3c50
 
   - name: vcmi
     buildsystem: cmake-ninja
