@@ -18,7 +18,7 @@ modules:
   - name: boost
     buildsystem: simple
     build-commands:
-      - ./bootstrap.sh --prefix=/app --with-libraries=program_options,filesystem,system,thread,locale,date_time,atomic
+      - ./bootstrap.sh --prefix=/app --with-libraries=program_options,filesystem,system,thread,locale,date_time,atomic,iostreams
       - ./b2
       - ./b2 install
     sources:
@@ -93,6 +93,30 @@ modules:
         url: https://github.com/fuzzylite/fuzzylite.git
         branch: release
         commit: 7aee562d6ca17f3cf42588ffb5116e03017c3c50
+
+  - name: innoextract
+    buildsystem: cmake-ninja
+    sources:
+      - type: archive
+        url: https://github.com/dscharrer/innoextract/releases/download/1.9/innoextract-1.9.tar.gz
+        sha256: 6344a69fc1ed847d4ed3e272e0da5998948c6b828cb7af39c6321aba6cf88126
+        x-checker-data:
+          type: anitya
+          project-id: 8646
+          stable-only: true
+          url-template: https://github.com/dscharrer/innoextract/releases/download/$version/innoextract-$version.tar.gz
+
+  - name: unshield
+    buildsystem: cmake-ninja
+    sources:
+      - type: archive
+        url: https://github.com/twogood/unshield/archive/refs/tags/1.5.1.tar.gz
+        sha256: 34cd97ff1e6f764436d71676e3d6842dc7bd8e2dd5014068da5c560fe4661f60
+        x-checker-data:
+          type: anitya
+          project-id: 16008
+          stable-only: true
+          url-template: https://github.com/twogood/unshield/archive/refs/tags/$version.tar.gz
 
   - name: vcmi
     buildsystem: cmake-ninja
