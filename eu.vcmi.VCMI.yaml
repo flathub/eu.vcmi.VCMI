@@ -80,7 +80,7 @@ modules:
       - type: git
         url: https://github.com/LuaJIT/LuaJIT
         branch: v2.1
-        commit: 8625eee71f16a3a780ec92bc303c17456efc7fb3
+        commit: a04480e311f93d3ceb2f92549cad3fffa38250ef
       - type: shell
         commands:
           - sed -i 's|/usr/local|/app|g' Makefile
