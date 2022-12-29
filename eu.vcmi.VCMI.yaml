@@ -13,6 +13,8 @@ finish-args:
   - --share=network
   - --device=dri
 modules:
+  - shared-modules/SDL2/SDL2-2.26.1-with-libdecor.json
+
   # For dependencies cf.
   # https://github.com/vcmi/vcmi/blob/develop/CI/linux/before_install.sh
   - name: boost
