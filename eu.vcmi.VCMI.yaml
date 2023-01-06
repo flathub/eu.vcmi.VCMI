@@ -123,6 +123,7 @@ modules:
   - name: vcmi
     buildsystem: cmake-ninja
     config-opts:
+      - -DENABLE_GITVERSION=OFF
       - -DFORCE_BUNDLED_FL=OFF
       - -DLIB_DIR=lib
       - -DENABLE_TEST=0
