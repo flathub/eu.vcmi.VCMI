@@ -141,3 +141,11 @@ modules:
           - sed -i "s|</description>|<p>To play VCMI you will need to copy the 'Data',
             'Maps' and 'Mp3' folders from Heroes III to '~/.var/app/eu.vcmi.VCMI/data/vcmi'</p></description>|"
             launcher/eu.vcmi.VCMI.metainfo.xml
+    post-install:
+      - cp /app/share/applications/vcmieditor.desktop /app/share/applications/eu.vcmi.VCMI.editor.desktop
+      - cp /app/share/applications/vcmieditor.desktop /app/share/applications/eu.vcmi.VCMI.editor.desktop
+      - sed -i 's|Icon=vcmieditor|Icon=eu.vcmi.VCMI.editor|' /app/share/applications/eu.vcmi.VCMI.editor.desktop
+      - |
+        for res in 32 48 64 128 256; do
+          mv /app/share/icons/hicolor/${res}x${res}/apps/vcmieditor.png /app/share/icons/hicolor/${res}x${res}/apps/eu.vcmi.VCMI.editor.png
+        done
