@@ -1,6 +1,6 @@
 app-id: eu.vcmi.VCMI
 runtime: org.kde.Platform
-runtime-version: 5.15-22.08
+runtime-version: 6.4
 sdk: org.kde.Sdk
 rename-desktop-file: vcmilauncher.desktop
 rename-icon: vcmiclient
@@ -64,6 +64,7 @@ modules:
     buildsystem: cmake-ninja
     config-opts:
       - -Wno-dev
+      - -DTBB_TEST=OFF
     build-options:
       cflags: -Wno-error
     sources:
