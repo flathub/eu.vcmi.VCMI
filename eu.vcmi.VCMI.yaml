@@ -64,6 +64,8 @@ modules:
     buildsystem: cmake-ninja
     config-opts:
       - -Wno-dev
+    build-options:
+      cflags: -Wno-error
     sources:
       - type: archive
         url: https://github.com/oneapi-src/oneTBB/archive/refs/tags/v2021.8.0.tar.gz
