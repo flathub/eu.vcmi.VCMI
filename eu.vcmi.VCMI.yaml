@@ -68,8 +68,8 @@ modules:
       - type: archive
         # latest release doesn't build with gcc 12:
         # https://github.com/oneapi-src/oneTBB/issues/370
-        url: https://github.com/oneapi-src/oneTBB/archive/23266bc5411a5ffd7dd5e94a90ccaeadbc6c3d12.zip
-        sha256: 3d47211338f7a9a0e1743c9a404aa35a902781473ffc521f6435c0ce2d83103f
+        url: https://github.com/oneapi-src/oneTBB/archive/refs/tags/v2021.8.0.tar.gz
+        sha256: eee380323bb7ce864355ed9431f85c43955faaae9e9bce35c62b372d7ffd9f8b
         x-checker-data:
           type: anitya
           project-id: 227581
@@ -78,7 +78,8 @@ modules:
       - type: shell
         commands:
           # https://github.com/oneapi-src/oneTBB/issues/843
-          - sed -i "s|set(TBB_WARNING_LEVEL|set(TBB_WARNING_LEVEL -Wno-error=stringop-overflow|" cmake/compilers/GNU.cmake
+          - sed -i "s|set(TBB_WARNING_LEVEL|set(TBB_WARNING_LEVEL -Wno-error=stringop-overflow|"
+            cmake/compilers/GNU.cmake
 
   - name: luajit
     no-autogen: true
