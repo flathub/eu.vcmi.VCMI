@@ -13,7 +13,7 @@ finish-args:
   - --share=network
   - --device=dri
 modules:
-  - shared-modules/SDL2/SDL2-2.26.1-with-libdecor.json
+  - shared-modules/SDL2/SDL2-with-libdecor.json
 
   # For dependencies cf.
   # https://github.com/vcmi/vcmi/blob/develop/CI/linux/before_install.sh
@@ -74,18 +74,7 @@ modules:
           stable-only: true
           url-template: https://github.com/oneapi-src/oneTBB/archive/refs/tags/v$version.tar.gz
 
-  - name: luajit
-    no-autogen: true
-    sources:
-      # LuaJIT is using a rolling release model:
-      # https://github.com/LuaJIT/LuaJIT/issues/563
-      - type: git
-        url: https://github.com/LuaJIT/LuaJIT
-        branch: v2.1
-        commit: 505e2c03de35e2718eef0d2d3660712e06dadf1f
-      - type: shell
-        commands:
-          - sed -i 's|/usr/local|/app|g' Makefile
+  - shared-modules/luajit/luajit.json
 
   - name: fuzzylite
     subdir: fuzzylite
