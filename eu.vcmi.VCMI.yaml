@@ -132,7 +132,7 @@ modules:
             'Maps' and 'Mp3' folders from Heroes III to '~/.var/app/eu.vcmi.VCMI/data/vcmi/'</p></description>|"
             launcher/eu.vcmi.VCMI.metainfo.xml
     build-commands:
-      - crest --prefix=linux-release
+      - ctest --prefix=linux-release
     post-install:
       - cp /app/share/applications/vcmieditor.desktop /app/share/applications/eu.vcmi.VCMI.editor.desktop
       - sed -i 's|Icon=vcmieditor|Icon=eu.vcmi.VCMI.editor|' /app/share/applications/eu.vcmi.VCMI.editor.desktop
