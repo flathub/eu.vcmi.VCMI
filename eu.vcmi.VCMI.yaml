@@ -132,7 +132,7 @@ modules:
             'Maps' and 'Mp3' folders from Heroes III to '~/.var/app/eu.vcmi.VCMI/data/vcmi/'</p></description>|"
             launcher/eu.vcmi.VCMI.metainfo.xml
     build-commands:
-      - ctest --prefix=linux-release
+      - ctest --prefix=linux-release --test-dir build
     post-install:
       - cp /app/share/applications/vcmieditor.desktop /app/share/applications/eu.vcmi.VCMI.editor.desktop
       - sed -i 's|Icon=vcmieditor|Icon=eu.vcmi.VCMI.editor|' /app/share/applications/eu.vcmi.VCMI.editor.desktop
@@ -140,3 +140,4 @@ modules:
         for res in 32 48 64 128 256; do
           mv /app/share/icons/hicolor/${res}x${res}/apps/vcmieditor.png /app/share/icons/hicolor/${res}x${res}/apps/eu.vcmi.VCMI.editor.png
         done
+
