@@ -115,7 +115,7 @@ modules:
       - -DENABLE_GITVERSION=OFF
       - -DFORCE_BUNDLED_FL=OFF
       - -DLIB_DIR=lib
-      - -DENABLE_TEST=0
+      - -DENABLE_TEST=ON
       - -Wno-dev
     sources:
       - type: archive
