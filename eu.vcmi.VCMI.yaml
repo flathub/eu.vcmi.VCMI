@@ -12,6 +12,11 @@ finish-args:
   - --socket=pulseaudio
   - --share=network
   - --device=dri
+add-extensions:
+  org.freedesktop.Platform.ffmpeg-full:
+    version: '21.08'
+    directory: lib/ffmpeg
+    add-ld-path: '.'
 modules:
   - shared-modules/SDL2/SDL2-with-libdecor.json
 
