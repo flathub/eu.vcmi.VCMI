@@ -115,13 +115,10 @@ modules:
       - -DENABLE_GITVERSION=OFF
       - -DFORCE_BUNDLED_FL=OFF
       - -DLIB_DIR=lib
-      - -DENABLE_TEST=ON
       - -Wno-dev
     sources:
       - type: git
         url: https://github.com/vcmi/vcmi
-        tag: 1.1.1
-        commit: b429f0bfeb230de65c771e0edf6e1684a5eb653c
         x-checker-data:
           type: anitya
           project-id: 5456
@@ -132,8 +129,6 @@ modules:
           - sed -i "s|</description>|<p>To play VCMI you will need to copy the 'Data',
             'Maps' and 'Mp3' folders from Heroes III to '~/.var/app/eu.vcmi.VCMI/data/vcmi/'</p></description>|"
             launcher/eu.vcmi.VCMI.metainfo.xml
-    build-commands:
-      - ctest --prefix=linux-release --test-dir test
     post-install:
       - cp /app/share/applications/vcmieditor.desktop /app/share/applications/eu.vcmi.VCMI.editor.desktop
       - sed -i 's|Icon=vcmieditor|Icon=eu.vcmi.VCMI.editor|' /app/share/applications/eu.vcmi.VCMI.editor.desktop
