@@ -120,7 +120,7 @@ modules:
     sources:
       - type: git
         url: https://github.com/Alexander-Wilms/vcmi
-        commit: 94eba378f373031f6a6c54f35812fc9fb96c0545
+        commit: 3a3035e3c57e8af2473dc0bfe01885ba368f708b
       - type: shell
         commands:
           - sed -i "s|</description>|<p>To play VCMI you will need to copy the 'Data',
