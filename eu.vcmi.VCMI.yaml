@@ -117,6 +117,8 @@ modules:
       - -DLIB_DIR=lib
       - -DENABLE_TEST=0
       - -Wno-dev
+    cleanup:
+      - /share/icons/hicolor/1024x1024 # workaround for https://savannah.gnu.org/bugs/?55836
     sources:
       - type: git
         url: https://github.com/Alexander-Wilms/vcmi
