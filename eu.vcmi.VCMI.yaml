@@ -117,15 +117,13 @@ modules:
       - -DLIB_DIR=lib
       - -DENABLE_TEST=0
       - -Wno-dev
+    cleanup:
+      - /share/icons/hicolor/1024x1024 # workaround for https://savannah.gnu.org/bugs/?55836
+      - /share/icons/hicolor/2048x2048
     sources:
-      - type: archive
-        url: https://github.com/vcmi/vcmi/archive/refs/tags/1.2.0.tar.gz
-        sha256: fb7ad26f19e91647c480fed3183e205c8c3f48da955f7ab797ebdbae74efc2d3
-        x-checker-data:
-          type: anitya
-          project-id: 5456
-          stable-only: true
-          url-template: https://github.com/vcmi/vcmi/archive/refs/tags/$version.tar.gz
+      - type: git
+        url: https://github.com/Alexander-Wilms/vcmi
+        commit: bbae72be76a64e0c2832880a494185c428bb376c
       - type: shell
         commands:
           - sed -i "s|</description>|<p>To play VCMI you will need to copy the 'Data',
