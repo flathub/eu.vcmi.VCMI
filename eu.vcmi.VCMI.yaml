@@ -119,6 +119,7 @@ modules:
       - -Wno-dev
     cleanup:
       - /share/icons/hicolor/1024x1024 # workaround for https://savannah.gnu.org/bugs/?55836
+      - /share/icons/hicolor/2048x2048
     sources:
       - type: git
         url: https://github.com/Alexander-Wilms/vcmi
