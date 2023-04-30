@@ -118,14 +118,9 @@ modules:
       - -DENABLE_TEST=0
       - -Wno-dev
     sources:
-      - type: archive
-        url: https://github.com/vcmi/vcmi/archive/refs/tags/1.1.1.tar.gz
-        sha256: 41cf343e45a3c1f4ddf95e97697c25e68e40b93f681c0b9d631b3c9d1608a49b
-        x-checker-data:
-          type: anitya
-          project-id: 5456
-          stable-only: true
-          url-template: https://github.com/vcmi/vcmi/archive/refs/tags/$version.tar.gz
+      - type: git
+        url: https://github.com/vcmi/vcmi
+        commit: 9f5566693123260e06f277d9ffff629e6416e0d7
       - type: shell
         commands:
           - sed -i "s|</description>|<p>To play VCMI you will need to copy the 'Data',
