@@ -119,13 +119,15 @@ modules:
       - -Wno-dev
     sources:
       - type: archive
-        url: https://github.com/vcmi/vcmi/archive/refs/tags/1.1.1.tar.gz
-        sha256: 41cf343e45a3c1f4ddf95e97697c25e68e40b93f681c0b9d631b3c9d1608a49b
+        url: https://github.com/vcmi/vcmi/archive/refs/tags/1.2.1.tar.gz
+        sha256: 88ffc13da9b7d6ac8ed294b1b7719e5adc0cdc34a9f0d83d55b5b5c8d02e529a
         x-checker-data:
           type: anitya
           project-id: 5456
           stable-only: true
           url-template: https://github.com/vcmi/vcmi/archive/refs/tags/$version.tar.gz
+      - type: patch
+        path: crash.patch
       - type: shell
         commands:
           - sed -i "s|</description>|<p>To play VCMI you will need to copy the 'Data',
