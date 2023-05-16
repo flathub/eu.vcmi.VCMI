@@ -2,15 +2,6 @@ app-id: eu.vcmi.VCMI
 runtime: org.kde.Platform
 runtime-version: 5.15-21.08
 sdk: org.kde.Sdk
-add-extensions:
-  org.freedesktop.Platform.ffmpeg-full:
-    directory: lib/ffmpeg
-    add-ld-path: .
-    version: '21.08'
-    autodownload: true
-    autodelete: false
-cleanup-commands:
-  - mkdir -p ${FLATPAK_DEST}/lib/ffmpeg
 rename-desktop-file: vcmilauncher.desktop
 rename-icon: vcmiclient
 command: vcmilauncher
@@ -23,6 +14,29 @@ finish-args:
   - --device=dri
 modules:
   - shared-modules/SDL2/SDL2-with-libdecor.json
+
+  - name: ffmpeg
+    buildsystem: autotools
+    config-opts:
+      - --disable-doc
+      - --disable-static
+      - --enable-shared
+      - --enable-optimizations
+      - --disable-everything
+      - --enable-decoder=binkaudio_dct,binkaudio_rdft,smackaud,bink,smacker
+      - --enable-protocol=cache,file,data,pipe,tcp,udp
+    sources:
+      - type: archive
+        url: https://ffmpeg.org/releases/ffmpeg-4.4.4.tar.xz
+        sha256: e80b380d595c809060f66f96a5d849511ef4a76a26b76eacf5778b94c3570309
+        x-checker-data:
+          type: anitya
+          project-id: 5405
+          stable-only: true
+          versions: {<: '5.0'}
+          url-template: https://ffmpeg.org/releases/ffmpeg-$version.tar.xz
+    cleanup:
+      - /share/ffmpeg
 
   # For dependencies cf.
   # https://github.com/vcmi/vcmi/blob/develop/CI/linux/before_install.sh
