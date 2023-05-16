@@ -4,9 +4,13 @@ runtime-version: 5.15-21.08
 sdk: org.kde.Sdk
 add-extensions:
   org.freedesktop.Platform.ffmpeg-full:
-    version: '21.08'
     directory: lib/ffmpeg
     add-ld-path: .
+    version: '21.08'
+    autodownload: true
+    autodelete: false
+cleanup-commands:
+  - mkdir -p ${FLATPAK_DEST}/lib/ffmpeg
 rename-desktop-file: vcmilauncher.desktop
 rename-icon: vcmiclient
 command: vcmilauncher
