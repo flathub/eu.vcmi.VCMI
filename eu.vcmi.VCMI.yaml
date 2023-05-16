@@ -1,7 +1,12 @@
 app-id: eu.vcmi.VCMI
 runtime: org.kde.Platform
-runtime-version: 5.15-21.08
+runtime-version: 5.15-22.08
 sdk: org.kde.Sdk
+add-extensions:
+  org.freedesktop.Platform.ffmpeg-full:
+    version: '22.08'
+    directory: lib/ffmpeg
+    add-ld-path: .
 rename-desktop-file: vcmilauncher.desktop
 rename-icon: vcmiclient
 command: vcmilauncher
@@ -128,11 +133,6 @@ modules:
           url-template: https://github.com/vcmi/vcmi/archive/refs/tags/$version.tar.gz
       - type: patch
         path: crash.patch
-      - type: shell
-        commands:
-          - sed -i "s|</description>|<p>To play VCMI you will need to copy the 'Data',
-            'Maps' and 'Mp3' folders from Heroes III to '~/.var/app/eu.vcmi.VCMI/data/vcmi/'</p></description>|"
-            launcher/eu.vcmi.VCMI.metainfo.xml
     post-install:
       - cp /app/share/applications/vcmieditor.desktop /app/share/applications/eu.vcmi.VCMI.editor.desktop
       - sed -i 's|Icon=vcmieditor|Icon=eu.vcmi.VCMI.editor|' /app/share/applications/eu.vcmi.VCMI.editor.desktop
