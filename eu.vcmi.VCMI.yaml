@@ -22,9 +22,8 @@ modules:
       - --disable-static
       - --enable-shared
       - --enable-optimizations
-      - --disable-everything
+      - --disable-decoders
       - --enable-decoder=binkaudio_dct,binkaudio_rdft,smackaud,bink,smacker
-      - --enable-protocol=cache,file,data,pipe,tcp,udp
     sources:
       - type: archive
         url: https://ffmpeg.org/releases/ffmpeg-4.4.4.tar.xz
