@@ -105,6 +105,8 @@ modules:
   - name: fuzzylite
     subdir: fuzzylite
     buildsystem: cmake-ninja
+    config-opts:
+      - -DFL_BUILD_TESTS=OFF # works around https://github.com/catchorg/Catch2/issues/2178
     sources:
       - type: git
         url: https://github.com/fuzzylite/fuzzylite.git
