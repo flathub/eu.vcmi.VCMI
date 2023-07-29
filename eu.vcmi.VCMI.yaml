@@ -73,9 +73,9 @@ modules:
 
   - name: hwloc
     sources:
-      - sha256: 7cc4931a20fef457e0933af3f375be6eafa7703fde21e137bfb9685b1409599e
+      - sha256: 0a87fdf677f8b00b567d229b6320bf6b25c693edaa43e0b85268d999d6b060cf
         type: archive
-        url: https://download.open-mpi.org/release/hwloc/v2.9/hwloc-2.9.1.tar.bz2
+        url: https://download.open-mpi.org/release/hwloc/v2.9/hwloc-2.9.2.tar.bz2
         x-checker-data:
           type: anitya
           project-id: 13501
@@ -88,8 +88,8 @@ modules:
       - -Wno-dev
     sources:
       - type: archive
-        url: https://github.com/oneapi-src/oneTBB/archive/refs/tags/v2021.9.0.tar.gz
-        sha256: 1ce48f34dada7837f510735ff1172f6e2c261b09460e3bf773b49791d247d24e
+        url: https://github.com/oneapi-src/oneTBB/archive/refs/tags/v2021.10.0.tar.gz
+        sha256: 487023a955e5a3cc6d3a0d5f89179f9b6c0ae7222613a7185b0227ba0c83700b
         x-checker-data:
           type: anitya
           project-id: 227581
