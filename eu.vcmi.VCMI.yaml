@@ -65,7 +65,7 @@ modules:
           type: anitya
           project-id: 5303
           stable-only: true
-          url-template: https://zlib.net/zlib-${major}.${minor}.$patch.tar.xz
+          url-template: https://zlib.net/zlib-$version.tar.xz
       - type: shell
         commands:
           - rm contrib/minizip/Makefile
