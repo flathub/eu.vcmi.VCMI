@@ -1,6 +1,6 @@
 app-id: eu.vcmi.VCMI
 runtime: org.kde.Platform
-runtime-version: 6.4
+runtime-version: 6.5
 sdk: org.kde.Sdk
 rename-desktop-file: vcmilauncher.desktop
 rename-icon: vcmiclient
