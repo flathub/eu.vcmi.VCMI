@@ -1,6 +1,6 @@
 app-id: eu.vcmi.VCMI
 runtime: org.kde.Platform
-runtime-version: 5.15-21.08
+runtime-version: 6.5
 sdk: org.kde.Sdk
 rename-desktop-file: vcmilauncher.desktop
 rename-icon: vcmiclient
@@ -95,12 +95,18 @@ modules:
           project-id: 227581
           stable-only: true
           url-template: https://github.com/oneapi-src/oneTBB/archive/refs/tags/v$version.tar.gz
+      - type: shell
+        commands:
+          # https://github.com/oneapi-src/oneTBB/issues/843
+          - sed -i "s|set(TBB_WARNING_LEVEL|set(TBB_WARNING_LEVEL -Wno-error=stringop-overflow|" cmake/compilers/GNU.cmake
 
   - shared-modules/luajit/luajit.json
 
   - name: fuzzylite
     subdir: fuzzylite
     buildsystem: cmake-ninja
+    config-opts:
+      - -DFL_BUILD_TESTS=OFF # works around https://github.com/catchorg/Catch2/issues/2178
     sources:
       - type: git
         url: https://github.com/fuzzylite/fuzzylite.git
