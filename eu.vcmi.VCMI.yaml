@@ -155,4 +155,3 @@ modules:
         for res in 32 48 64 128 256; do
           mv /app/share/icons/hicolor/${res}x${res}/apps/vcmieditor.png /app/share/icons/hicolor/${res}x${res}/apps/eu.vcmi.VCMI.editor.png
         done
-      - rm -rf /app/share/icons/hicolor/1024x1024 /app/share/icons/hicolor/2048x2048
