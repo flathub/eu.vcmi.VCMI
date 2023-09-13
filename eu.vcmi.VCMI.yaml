@@ -144,11 +144,6 @@ modules:
         url: https://github.com/vcmi/vcmi
         branch: develop
         commit: 2db6a75028f2d4db9f779423ea9ff4fbd39c28b8
-        x-checker-data:
-          type: anitya
-          project-id: 5456
-          stable-only: true
-          url-template: https://github.com/vcmi/vcmi/archive/refs/tags/$version.tar.gz
     post-install:
       - cp /app/share/applications/vcmieditor.desktop /app/share/applications/eu.vcmi.VCMI.editor.desktop
       - sed -i 's|Icon=vcmieditor|Icon=eu.vcmi.VCMI.editor|' /app/share/applications/eu.vcmi.VCMI.editor.desktop
