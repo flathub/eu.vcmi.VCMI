@@ -141,9 +141,9 @@ modules:
       - -Wno-dev
     sources:
       - type: git
-        url: https://github.com/vcmi/vcmi
+        url: https://github.com/Alexander-Wilms/vcmi
         branch: develop
-        commit: 2db6a75028f2d4db9f779423ea9ff4fbd39c28b8
+        commit: b64fc6e5edd51fbe0708721152a2660e1575ca2c
     post-install:
       - cp /app/share/applications/vcmieditor.desktop /app/share/applications/eu.vcmi.VCMI.editor.desktop
       - sed -i 's|Icon=vcmieditor|Icon=eu.vcmi.VCMI.editor|' /app/share/applications/eu.vcmi.VCMI.editor.desktop
