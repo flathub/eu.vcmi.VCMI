@@ -3,7 +3,6 @@ runtime: org.kde.Platform
 runtime-version: 5.15-21.08
 sdk: org.kde.Sdk
 rename-desktop-file: vcmilauncher.desktop
-rename-icon: vcmiclient
 command: vcmilauncher
 finish-args:
   - --socket=wayland
