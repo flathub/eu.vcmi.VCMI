@@ -150,7 +150,6 @@ modules:
           url-template: https://github.com/vcmi/vcmi/archive/refs/tags/$version.tar.gz
     post-install:
       - cp /app/share/applications/vcmieditor.desktop /app/share/applications/eu.vcmi.VCMI.editor.desktop
-      - sed -i 's|Icon=vcmiclient|Icon=eu.vcmi.VCMI|' /app/share/applications/vcmiclient.desktop
       - sed -i 's|Icon=vcmieditor|Icon=eu.vcmi.VCMI.editor|' /app/share/applications/eu.vcmi.VCMI.editor.desktop
       - |
         for res in 32 48 64 128 256; do
