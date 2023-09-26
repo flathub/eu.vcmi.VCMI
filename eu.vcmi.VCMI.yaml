@@ -142,7 +142,7 @@ modules:
     sources:
      - type: git
        url: https://github.com/Alexander-Wilms/vcmi
-       commit: c6a8be0e0989ee14e516f623a5b8fcab6b8eca4a
+       commit: 8950b0b29cd2a9a667d20fbfb91e4407baece8c3
     post-install:
       - cp /app/share/applications/vcmieditor.desktop /app/share/applications/eu.vcmi.VCMI.editor.desktop
       - sed -i 's|Icon=vcmieditor|Icon=eu.vcmi.VCMI.editor|' /app/share/applications/eu.vcmi.VCMI.editor.desktop
