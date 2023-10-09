@@ -90,6 +90,11 @@ modules:
       - type: git
         url: https://github.com/oneapi-src/oneTBB
         commit: e131071769ee3df51b56b053ba6bfa06ae9eff25 # fixes https://github.com/oneapi-src/oneTBB/issues/1127
+        #x-checker-data:
+        #  type: anitya
+        #  project-id: 227581
+        #  stable-only: true
+        #  url-template: https://github.com/oneapi-src/oneTBB/archive/refs/tags/v$version.tar.gz
 
   - shared-modules/luajit/luajit.json
   
@@ -134,9 +139,16 @@ modules:
       - -DENABLE_TEST=0
       - -Wno-dev
     sources:
-      - type: git
-        url: https://github.com/vcmi/vcmi
-        commit: d517ca9ba7b37c4f9563e6a581cccdbac9d44f9c
+      - type: archive
+        url: https://github.com/vcmi/vcmi/archive/refs/tags/1.3.2.tar.gz
+        sha256: 6faf23bbe11e58b12053d378baf2c633e962a26a491cd410e3fc6ab63724f9fc
+        x-checker-data:
+          type: anitya
+          project-id: 5456
+          stable-only: true
+          url-template: https://github.com/vcmi/vcmi/archive/refs/tags/$version.tar.gz
+      - type: patch
+        path: fuzzylite.patch
     post-install:
       - cp /app/share/applications/vcmieditor.desktop /app/share/applications/eu.vcmi.VCMI.editor.desktop
       - sed -i 's|Icon=vcmieditor|Icon=eu.vcmi.VCMI.editor|' /app/share/applications/eu.vcmi.VCMI.editor.desktop

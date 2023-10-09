@@ -1,0 +1,77 @@
+diff --git a/AI/Nullkiller/Engine/FuzzyEngines.h b/AI/Nullkiller/Engine/FuzzyEngines.h
+index 1694d175c..1873b97a5 100644
+--- a/AI/Nullkiller/Engine/FuzzyEngines.h
++++ b/AI/Nullkiller/Engine/FuzzyEngines.h
+@@ -8,7 +8,11 @@
+ *
+ */
+ #pragma once
+-#include <fl/Headers.h>
++#if __has_include(<fuzzylite/Headers.h>)
++#  include <fuzzylite/Headers.h>
++#else
++#  include <fl/Headers.h>
++#endif
+ #include "../Goals/AbstractGoal.h"
+ 
+ VCMI_LIB_NAMESPACE_BEGIN
+diff --git a/AI/Nullkiller/Engine/PriorityEvaluator.h b/AI/Nullkiller/Engine/PriorityEvaluator.h
+index fb8085494..5ab2a6082 100644
+--- a/AI/Nullkiller/Engine/PriorityEvaluator.h
++++ b/AI/Nullkiller/Engine/PriorityEvaluator.h
+@@ -8,7 +8,11 @@
+ *
+ */
+ #pragma once
+-#include "fl/Headers.h"
++#if __has_include(<fuzzylite/Headers.h>)
++#  include <fuzzylite/Headers.h>
++#else
++#  include <fl/Headers.h>
++#endif
+ #include "../Goals/CGoal.h"
+ #include "../Pathfinding/AIPathfinder.h"
+ 
+diff --git a/AI/VCAI/FuzzyEngines.h b/AI/VCAI/FuzzyEngines.h
+index f09920da7..63e8279bc 100644
+--- a/AI/VCAI/FuzzyEngines.h
++++ b/AI/VCAI/FuzzyEngines.h
+@@ -8,7 +8,11 @@
+ *
+ */
+ #pragma once
+-#include <fl/Headers.h>
++#if __has_include(<fuzzylite/Headers.h>)
++#  include <fuzzylite/Headers.h>
++#else
++#  include <fl/Headers.h>
++#endif
+ #include "Goals/AbstractGoal.h"
+ 
+ VCMI_LIB_NAMESPACE_BEGIN
+diff --git a/cmake_modules/Findfuzzylite.cmake b/cmake_modules/Findfuzzylite.cmake
+index 4932a7eca..e95ec54e5 100644
+--- a/cmake_modules/Findfuzzylite.cmake
++++ b/cmake_modules/Findfuzzylite.cmake
+@@ -21,11 +21,13 @@
+ 
+ find_path(fuzzylite_INCLUDE_DIR 
+     fl/fuzzylite.h
++    fuzzylite/fuzzylite.h
+   HINTS
+     ENV FLDIR
+   PATH_SUFFIXES
+     fl
+-    include/fl 
++    include/fl
++    include/fuzzylite 
+     include
+ )
+ 
+@@ -62,4 +64,4 @@ if (NOT TARGET "fuzzylite::fuzzylite" AND fuzzylite_FOUND)
+ 		IMPORTED_LOCATION "${fuzzylite_LIBRARY}")
+ endif()
+ 
+-mark_as_advanced(fuzzylite_LIBRARY fuzzylite_INCLUDE_DIR)
+\ No newline at end of file
++mark_as_advanced(fuzzylite_LIBRARY fuzzylite_INCLUDE_DIR)
