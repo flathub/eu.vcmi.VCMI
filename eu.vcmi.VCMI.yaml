@@ -134,8 +134,6 @@ modules:
           project-id: 5456
           stable-only: true
           url-template: https://github.com/vcmi/vcmi/archive/refs/tags/$version.tar.gz
-      - type: patch
-        path: fuzzylite.patch
     post-install:
       - cp /app/share/applications/vcmieditor.desktop /app/share/applications/eu.vcmi.VCMI.editor.desktop
       - sed -i 's|Icon=vcmieditor|Icon=eu.vcmi.VCMI.editor|' /app/share/applications/eu.vcmi.VCMI.editor.desktop
