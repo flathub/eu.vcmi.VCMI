@@ -127,8 +127,8 @@ modules:
       - -Wno-dev
     sources:
       - type: archive
-        url: https://github.com/vcmi/vcmi/archive/refs/tags/1.4.1.tar.gz
-        sha256: 30b3e4f1c2d817163f68a45ef3857b05d91a77459afe4ae7a1ef37ad326e0375
+        url: https://github.com/vcmi/vcmi/archive/refs/tags/1.4.2.tar.gz
+        sha256: 6536bc2706c733675a6009a5651afe4fc9218a0e374bbd02bf43bbd6d79e9ebc
         x-checker-data:
           type: anitya
           project-id: 5456
