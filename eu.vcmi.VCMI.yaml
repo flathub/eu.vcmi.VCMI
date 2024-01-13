@@ -117,6 +117,10 @@ modules:
           stable-only: true
           url-template: https://github.com/twogood/unshield/archive/refs/tags/$version.tar.gz
 
+  # Fixes https://github.com/vcmi/vcmi/issues/3268
+  # PNG images with a palette are loaded as SDL surfaces with a palette
+  # https://github.com/libsdl-org/SDL_image/releases/tag/release-2.8.0
+  # https://gitlab.com/freedesktop-sdk/freedesktop-sdk/-/blob/release/23.08/elements/components/sdl2-image.bst?ref_type=heads
   - name: SDL_image
     rm-configure: true
     config-opts:
