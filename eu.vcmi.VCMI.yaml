@@ -138,7 +138,7 @@ modules:
       - type: script
         dest-filename: autogen.sh
         commands:
-          - "AUTOMAKE=\"automake --foreign\" autoreconf -vfi"
+          - AUTOMAKE="automake --foreign" autoreconf -vfi
 
   - name: vcmi
     buildsystem: cmake-ninja
@@ -150,8 +150,8 @@ modules:
       - -Wno-dev
     sources:
       - type: archive
-        url: https://github.com/vcmi/vcmi/archive/refs/tags/1.4.2.tar.gz
-        sha256: 6536bc2706c733675a6009a5651afe4fc9218a0e374bbd02bf43bbd6d79e9ebc
+        url: https://github.com/vcmi/vcmi/archive/refs/tags/1.4.4.tar.gz
+        sha256: 5231b37c1c54233c745052f4fc47efb4457cfb7f7316168ec1762f49b06a85e3
         x-checker-data:
           type: anitya
           project-id: 5456
