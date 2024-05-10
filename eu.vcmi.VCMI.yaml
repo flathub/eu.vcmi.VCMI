@@ -93,18 +93,6 @@ modules:
         url: https://github.com/fuzzylite/fuzzylite
         commit: a651f3d13e192352d7a02ee9da65ab591a963ab9 # includes https://github.com/fuzzylite/fuzzylite/pull/114
 
-  - name: innoextract
-    buildsystem: cmake-ninja
-    sources:
-      - type: archive
-        url: https://github.com/dscharrer/innoextract/releases/download/1.9/innoextract-1.9.tar.gz
-        sha256: 6344a69fc1ed847d4ed3e272e0da5998948c6b828cb7af39c6321aba6cf88126
-        x-checker-data:
-          type: anitya
-          project-id: 8646
-          stable-only: true
-          url-template: https://github.com/dscharrer/innoextract/releases/download/$version/innoextract-$version.tar.gz
-
   - name: unshield
     buildsystem: cmake-ninja
     sources:
@@ -149,14 +137,15 @@ modules:
       - -DENABLE_TEST=0
       - -Wno-dev
     sources:
-      - type: archive
-        url: https://github.com/vcmi/vcmi/archive/refs/tags/1.5.0.tar.gz
-        sha256: 38fa48c7da318aa5a9e0d3319fcb24f4dfdf78555c21b8b0b9f9bbb4cedf33f8
+      - type: git
+        url: https://github.com/vcmi/vcmi
+        tag: 1.5.0
+        sha256: d72afb1acc8a9d8507e1a60ca689d121e7956693
         x-checker-data:
           type: anitya
           project-id: 5456
           stable-only: true
-          url-template: https://github.com/vcmi/vcmi/archive/refs/tags/$version.tar.gz
+          tag-template: $version
     post-install:
       - cp /app/share/applications/vcmieditor.desktop /app/share/applications/eu.vcmi.VCMI.editor.desktop
       - sed -i 's|Icon=vcmieditor|Icon=eu.vcmi.VCMI.editor|' /app/share/applications/eu.vcmi.VCMI.editor.desktop
