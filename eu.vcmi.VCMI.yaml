@@ -146,6 +146,7 @@ modules:
           project-id: 5456
           stable-only: true
           tag-template: $version
+        commit: d72afb1acc8a9d8507e1a60ca689d121e7956693
       - type: shell
         commands:
           - sed -i 's| -fcf-protection=full||' CMakeLists.txt
