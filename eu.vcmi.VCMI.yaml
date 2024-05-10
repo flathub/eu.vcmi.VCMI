@@ -33,9 +33,9 @@ modules:
       - ./b2
       - ./b2 install
     sources:
-      - sha256: cc4b893acf645c9d4b698e9a0f08ca8846aa5d6c68275c14c3e7949c24109454
+      - sha256: 7009fe1faa1697476bdc7027703a2badb84e849b7b0baad5086b087b971f8617
         type: archive
-        url: https://boostorg.jfrog.io/artifactory/main/release/1.84.0/source/boost_1_84_0.tar.bz2
+        url: https://boostorg.jfrog.io/artifactory/main/release/1.85.0/source/boost_1_85_0.tar.bz2
         x-checker-data:
           type: anitya
           project-id: 6845
@@ -150,8 +150,8 @@ modules:
       - -Wno-dev
     sources:
       - type: archive
-        url: https://github.com/vcmi/vcmi/archive/refs/tags/1.4.5.tar.gz
-        sha256: 107682df28248282b6ac964598754718f9511d0c7e007ffdbd0fa51f87bb0049
+        url: https://github.com/vcmi/vcmi/archive/refs/tags/1.5.0.tar.gz
+        sha256: 38fa48c7da318aa5a9e0d3319fcb24f4dfdf78555c21b8b0b9f9bbb4cedf33f8
         x-checker-data:
           type: anitya
           project-id: 5456
