@@ -135,6 +135,7 @@ modules:
       - -DFORCE_BUNDLED_FL=OFF
       - -DLIB_DIR=lib
       - -DENABLE_TEST=0
+      - -DENABLE_GOLDMASTER=ON
       - -Wno-dev
     sources:
       - type: git
