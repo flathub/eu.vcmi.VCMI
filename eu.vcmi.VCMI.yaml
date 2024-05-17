@@ -128,6 +128,25 @@ modules:
         commands:
           - AUTOMAKE="automake --foreign" autoreconf -vfi
 
+  - name: pandoc
+    buildsystem: simple
+    build-commands:
+      - install -D bin/pandoc /app/bin/pandoc
+    # pandoc is only needed for converting the changelog
+    cleanup:
+      - '*'
+    sources:
+      - type: archive
+        only-arches:
+          - x86_64
+        url: https://github.com/jgm/pandoc/releases/download/2.13/pandoc-2.13-linux-amd64.tar.gz
+        sha256: 7404aa88a6eb9fbb99d9803b80170a3a546f51959230cc529c66a2ce6b950d4c
+      - type: archive
+        only-arches:
+          - aarch64
+        url: https://github.com/jgm/pandoc/releases/download/2.13/pandoc-2.13-linux-arm64.tar.gz
+        sha256: 4f87bfe8a0a626ad0e17d26d42e99a1c0ed7d369cca00366c1b3d97525f57db5
+
   - name: vcmi
     buildsystem: cmake-ninja
     config-opts:
@@ -147,6 +166,8 @@ modules:
           project-id: 5456
           stable-only: true
           tag-template: $version
+      - type: file
+        path: add_changelog_to_metainfo.py
     post-install:
       - cp /app/share/applications/vcmieditor.desktop /app/share/applications/eu.vcmi.VCMI.editor.desktop
       - sed -i 's|Icon=vcmieditor|Icon=eu.vcmi.VCMI.editor|' /app/share/applications/eu.vcmi.VCMI.editor.desktop
@@ -155,3 +176,4 @@ modules:
           mv /app/share/icons/hicolor/${res}x${res}/apps/vcmieditor.png /app/share/icons/hicolor/${res}x${res}/apps/eu.vcmi.VCMI.editor.png
         done
       - rm -rf /app/share/icons/hicolor/1024x1024 /app/share/icons/hicolor/2048x2048
+      - python3 add_changelog_to_metainfo.py
