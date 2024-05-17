@@ -12,7 +12,9 @@ with open("ChangeLog.md", "r") as f:
                 break
             in_section = True
         else:
-            line = line.replace("### ", "")
+            if "###" in line:
+                line += "\n"
+                line = line.replace("###", "")
             changelog_of_latest_version += line
 
 print(changelog_of_latest_version)
