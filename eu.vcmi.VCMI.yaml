@@ -147,9 +147,6 @@ modules:
           project-id: 5456
           stable-only: true
           tag-template: $version
-      - type: shell
-        commands:
-          - sed -i 's| -fcf-protection=full||' CMakeLists.txt
     post-install:
       - cp /app/share/applications/vcmieditor.desktop /app/share/applications/eu.vcmi.VCMI.editor.desktop
       - sed -i 's|Icon=vcmieditor|Icon=eu.vcmi.VCMI.editor|' /app/share/applications/eu.vcmi.VCMI.editor.desktop
