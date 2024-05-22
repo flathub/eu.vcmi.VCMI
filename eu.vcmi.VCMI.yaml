@@ -12,6 +12,7 @@ finish-args:
   - --socket=pulseaudio
   - --share=network
   - --device=all # gamepad and dri
+  - --filesystem=/tmp # use the host's /tmp, which should be big enough to extract the GOG installer there
 add-extensions:
   org.freedesktop.Platform.ffmpeg-full:
     directory: lib/ffmpeg
