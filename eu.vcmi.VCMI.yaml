@@ -12,7 +12,6 @@ finish-args:
   - --socket=pulseaudio
   - --share=network
   - --device=all # gamepad and dri
-  - --filesystem=/tmp # use the host's /tmp, which should be big enough to extract the GOG installer there
 add-extensions:
   org.freedesktop.Platform.ffmpeg-full:
     directory: lib/ffmpeg
@@ -167,6 +166,8 @@ modules:
           project-id: 5456
           stable-only: true
           tag-template: $version
+      - type: patch
+        path: 0001-extract-files-into-userdata-instead-of-tmp.patch
       - type: file
         path: add_changelog_to_metainfo.py
     post-install:
