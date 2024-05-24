@@ -1,0 +1,99 @@
+From faba115224e855bfb4fe6fd5258d3edf428b395b Mon Sep 17 00:00:00 2001
+From: Laserlicht <13953785+Laserlicht@users.noreply.github.com>
+Date: Thu, 23 May 2024 01:19:31 +0200
+Subject: [PATCH 1/1] extract files into userdata instead of tmp
+
+---
+ launcher/firstLaunch/firstlaunch_moc.cpp | 75 ++++++++++++------------
+ 1 file changed, 38 insertions(+), 37 deletions(-)
+
+diff --git a/launcher/firstLaunch/firstlaunch_moc.cpp b/launcher/firstLaunch/firstlaunch_moc.cpp
+index 45e5f58e0..4479231b9 100644
+--- a/launcher/firstLaunch/firstlaunch_moc.cpp
++++ b/launcher/firstLaunch/firstlaunch_moc.cpp
+@@ -316,44 +316,45 @@ void FirstLaunchView::extractGogData()
+ 	setEnabled(false);
+ 
+ 	QTimer::singleShot(100, this, [this, fileExe, fileBin](){ // background to make sure FileDialog is closed...
+-		QTemporaryDir dir;
+-		if(dir.isValid()) {
+-			QDir tempDir{dir.path()};
+-
+-			QString tmpFileExe = dir.filePath("h3_gog.exe");
+-			QFile(fileExe).copy(tmpFileExe);
+-			QFile(fileBin).copy(dir.filePath("h3_gog-1.bin"));
+-
+-			::extract_options o;
+-			o.extract = true;
+-
+-			// standard settings
+-			o.gog_galaxy = true;
+-			o.codepage = 0U;
+-			o.output_dir = dir.path().toStdString();
+-			o.extract_temp = true;
+-			o.extract_unknown = true;
+-			o.filenames.set_expand(true);
+-
+-			o.preserve_file_times = true; // also correctly closes file -> without it: on Windows the files are not written completly
+-			
+-			process_file(tmpFileExe.toStdString(), o, [this](float progress) {
+-				ui->progressBarGog->setValue(progress * 100);
+-				qApp->processEvents();
+-			});
+-
+-			ui->progressBarGog->setVisible(false);
+-			ui->pushButtonGogInstall->setVisible(true);
+-			setEnabled(true);
+-
+-			QStringList dirData = tempDir.entryList({"data"}, QDir::Filter::Dirs);
+-			if(dirData.empty() || QDir(tempDir.filePath(dirData.front())).entryList({"*.lod"}, QDir::Filter::Files).empty())
+-			{
+-				QMessageBox::critical(this, tr("No Heroes III data!"), tr("Selected files do not contain Heroes III data!"), QMessageBox::Ok, QMessageBox::Ok);
+-				return;
+-			}
+-			copyHeroesData(dir.path(), true);
++		QDir tempDir(pathToQString(VCMIDirs::get().userDataPath()));
++		tempDir.mkdir("tmp");
++		tempDir.cd("tmp");
++
++		QString tmpFileExe = tempDir.filePath("h3_gog.exe");
++		QFile(fileExe).copy(tmpFileExe);
++		QFile(fileBin).copy(tempDir.filePath("h3_gog-1.bin"));
++
++		::extract_options o;
++		o.extract = true;
++
++		// standard settings
++		o.gog_galaxy = true;
++		o.codepage = 0U;
++		o.output_dir = tempDir.path().toStdString();
++		o.extract_temp = true;
++		o.extract_unknown = true;
++		o.filenames.set_expand(true);
++
++		o.preserve_file_times = true; // also correctly closes file -> without it: on Windows the files are not written completly
++		
++		process_file(tmpFileExe.toStdString(), o, [this](float progress) {
++			ui->progressBarGog->setValue(progress * 100);
++			qApp->processEvents();
++		});
++
++		ui->progressBarGog->setVisible(false);
++		ui->pushButtonGogInstall->setVisible(true);
++		setEnabled(true);
++
++		QStringList dirData = tempDir.entryList({"data"}, QDir::Filter::Dirs);
++		if(dirData.empty() || QDir(tempDir.filePath(dirData.front())).entryList({"*.lod"}, QDir::Filter::Files).empty())
++		{
++			QMessageBox::critical(this, tr("No Heroes III data!"), tr("Selected files do not contain Heroes III data!"), QMessageBox::Ok, QMessageBox::Ok);
++			return;
+ 		}
++		copyHeroesData(tempDir.path(), true);
++
++		tempDir.removeRecursively();
+ 	});
+ #endif
+ }
+-- 
+2.45.1
+
