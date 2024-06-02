@@ -15,7 +15,7 @@ with open("ChangeLog.md", "r") as f:
             if "###" in line:
                 line += "\n"
                 line = line.replace("###", "")
-            changelog_of_latest_version += line
+            changelog_of_latest_version += line.replace("‘","'").replace("’","'")
 
 print(changelog_of_latest_version)
 with open("changelog_of_latest_version.md", "w") as f:
