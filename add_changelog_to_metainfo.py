@@ -15,8 +15,11 @@ with open("ChangeLog.md", "r") as f:
             if "###" in line:
                 line += "\n"
                 line = line.replace("###", "")
-            # fix incorrectly indented bullet points
-            changelog_of_latest_version += line.replace("* * ", "    * ")
+            # skip nested lists, since appstream doesn't support them
+            if "* * " not in line and "    * " not in line:
+                if line.strip().endswith(":"):
+                    line = line.replace(":","")
+                changelog_of_latest_version += line
 
 print(changelog_of_latest_version)
 with open("changelog_of_latest_version.md", "w") as f:
