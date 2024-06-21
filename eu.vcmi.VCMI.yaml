@@ -19,6 +19,15 @@ add-extensions:
     add-ld-path: .
     no-autodownload: false
     autodelete: false
+cleanup:
+  - /include
+  - /lib/cmake
+  - /lib/pkgconfig
+  - '*.a'
+  - '*.la'
+  - /share/doc
+  - /share/man
+  - /share/bash-completion
 cleanup-commands:
   - mkdir -p /app/lib/ffmpeg
 modules:
