@@ -69,9 +69,9 @@ modules:
 
   - name: hwloc
     sources:
-      - sha256: 03903b87cad5db72bd00f7926d6a53744b10c5c6a238c6b68510e7dc1560e4f9
+      - sha256: 04cdfbffad225ce15f66184f0f4141327dabf288d10a8b84d13f517acb7870c6
         type: archive
-        url: https://download.open-mpi.org/release/hwloc/v2.11/hwloc-2.11.0.tar.bz2
+        url: https://download.open-mpi.org/release/hwloc/v2.11/hwloc-2.11.1.tar.bz2
         x-checker-data:
           type: anitya
           project-id: 13501
