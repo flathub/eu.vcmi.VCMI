@@ -25,7 +25,9 @@ cleanup:
   - /lib/pkgconfig
   - '*.a'
   - '*.la'
+  - /share/Catch2
   - /share/doc
+  - /share/fuzzylite
   - /share/man
   - /share/bash-completion
 cleanup-commands:
