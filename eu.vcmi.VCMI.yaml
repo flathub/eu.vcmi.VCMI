@@ -86,11 +86,11 @@ modules:
       - type: git
         url: https://github.com/oneapi-src/oneTBB
         commit: e131071769ee3df51b56b053ba6bfa06ae9eff25 # fixes https://github.com/oneapi-src/oneTBB/issues/1127
-        #x-checker-data:
-        #  type: anitya
-        #  project-id: 227581
-        #  stable-only: true
-        #  url-template: https://github.com/oneapi-src/oneTBB/archive/refs/tags/v$version.tar.gz
+        x-checker-data:
+          type: anitya
+          project-id: 227581
+          stable-only: true
+          url-template: https://github.com/oneapi-src/oneTBB/archive/refs/tags/v$version.tar.gz
 
   - shared-modules/luajit/luajit.json
 
