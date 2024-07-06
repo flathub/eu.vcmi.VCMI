@@ -83,9 +83,9 @@ modules:
     config-opts:
       - -Wno-dev
     sources:
-      - type: git
-        url: https://github.com/oneapi-src/oneTBB
-        commit: e131071769ee3df51b56b053ba6bfa06ae9eff25 # fixes https://github.com/oneapi-src/oneTBB/issues/1127
+      - type: archive
+        url: https://github.com/oneapi-src/oneTBB/archive/refs/tags/v2021.13.0.tar.gz
+        sha256: 3ad5dd08954b39d113dc5b3f8a8dc6dc1fd5250032b7c491eb07aed5c94133e1
         x-checker-data:
           type: anitya
           project-id: 227581
