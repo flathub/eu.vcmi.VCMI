@@ -100,7 +100,7 @@ modules:
     sources:
       - type: git
         url: https://github.com/fuzzylite/fuzzylite
-        commit: a651f3d13e192352d7a02ee9da65ab591a963ab9 # includes https://github.com/fuzzylite/fuzzylite/pull/114
+        commit: 03d99e42ed37867deabda61bbedde34e9f4b48f0 # includes https://github.com/fuzzylite/fuzzylite/pull/114
 
   - name: unshield
     buildsystem: cmake-ninja
