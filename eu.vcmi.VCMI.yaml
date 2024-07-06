@@ -1,6 +1,6 @@
 app-id: eu.vcmi.VCMI
 runtime: org.kde.Platform
-runtime-version: 6.6
+runtime-version: '6.6'
 sdk: org.kde.Sdk
 rename-desktop-file: vcmilauncher.desktop
 rename-icon: vcmiclient
@@ -94,8 +94,19 @@ modules:
 
   - shared-modules/luajit/luajit.json
 
+  - name: catch2 # dependency of fuzzylite
+    config-opts:
+      - -Wno-dev
+    builddir: true
+    buildsystem: cmake-ninja
+    sources:
+      # version is specified in fuzzylite's CMakeLists.txt:
+      # https://github.com/fuzzylite/fuzzylite/blob/03d99e42ed37867deabda61bbedde34e9f4b48f0/CMakeLists.txt#L261C25-L261C33
+      - type: archive
+        url: https://github.com/catchorg/Catch2/archive/refs/tags/v2.13.10.tar.gz
+        sha256: d54a712b7b1d7708bc7a819a8e6e47b2fde9536f487b89ccbca295072a7d9943
+
   - name: fuzzylite
-    subdir: fuzzylite
     buildsystem: cmake-ninja
     sources:
       - type: git
@@ -137,11 +148,10 @@ modules:
         commands:
           - AUTOMAKE="automake --foreign" autoreconf -vfi
 
-  - name: pandoc
+  - name: pandoc # pandoc is only needed for converting the changelog
     buildsystem: simple
     build-commands:
       - install -D bin/pandoc /app/bin/pandoc
-    # pandoc is only needed for converting the changelog
     cleanup:
       - '*'
     sources:
