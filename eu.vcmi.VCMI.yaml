@@ -44,9 +44,9 @@ modules:
       - ./b2
       - ./b2 install
     sources:
-      - sha256: 7009fe1faa1697476bdc7027703a2badb84e849b7b0baad5086b087b971f8617
+      - sha256: 1bed88e40401b2cb7a1f76d4bab499e352fa4d0c5f31c0dbae64e24d34d7513b
         type: archive
-        url: https://boostorg.jfrog.io/artifactory/main/release/1.86.0/source/boost_1_85_0.tar.bz2
+        url: https://boostorg.jfrog.io/artifactory/main/release/1.86.0/source/boost_1_86_0.tar.bz2
         x-checker-data:
           type: anitya
           project-id: 6845
@@ -71,9 +71,9 @@ modules:
 
   - name: hwloc
     sources:
-      - sha256: 04cdfbffad225ce15f66184f0f4141327dabf288d10a8b84d13f517acb7870c6
+      - sha256: f7f88fecae067100f1a1a915b658add0f4f71561259482910a69baea22fe8409
         type: archive
-        url: https://download.open-mpi.org/release/hwloc/v2.11/hwloc-2.11.1.tar.bz2
+        url: https://download.open-mpi.org/release/hwloc/v2.11/hwloc-2.11.2.tar.bz2
         x-checker-data:
           type: anitya
           project-id: 13501
@@ -86,8 +86,8 @@ modules:
       - -Wno-dev
     sources:
       - type: archive
-        url: https://github.com/oneapi-src/oneTBB/archive/refs/tags/v2021.13.0.tar.gz
-        sha256: 3ad5dd08954b39d113dc5b3f8a8dc6dc1fd5250032b7c491eb07aed5c94133e1
+        url: https://github.com/oneapi-src/oneTBB/archive/refs/tags/v2022.0.0.tar.gz
+        sha256: e8e89c9c345415b17b30a2db3095ba9d47647611662073f7fbf54ad48b7f3c2a
         x-checker-data:
           type: anitya
           project-id: 227581
