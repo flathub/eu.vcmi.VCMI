@@ -180,7 +180,7 @@ modules:
     sources:
       - type: git
         url: https://github.com/vcmi/vcmi
-        #tag: 1.6.0
+        tag: 1.6.0
         commit: 1cbe1229ee418112423abcf73ccde923f6562e76
         x-checker-data:
           type: anitya
