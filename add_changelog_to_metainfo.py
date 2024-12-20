@@ -8,6 +8,8 @@ with open("ChangeLog.md", "r") as f:
     in_section = False
     for line in f:
         if line.startswith("# "):
+            continue
+        if line.startswith("## "):
             if in_section:
                 break
             in_section = True
@@ -43,8 +45,8 @@ with open("/app/share/metainfo/eu.vcmi.VCMI.metainfo.xml") as f:
 
 # format XML
 element = ET.XML(output)
-ET.indent(element)
-xml_string = ET.tostring(element, encoding="unicode")
+ET.indent(element, space="\t")
+xml_string = ET.tostring(element, encoding="unicode", xml_declaration=True)
 print(xml_string)
 
 with open("/app/share/metainfo/eu.vcmi.VCMI.metainfo.xml", "w") as f:
