@@ -33,8 +33,6 @@ cleanup:
 cleanup-commands:
   - mkdir -p /app/lib/ffmpeg
 modules:
-  - shared-modules/SDL2/SDL2-with-libdecor.json
-
   # For dependencies cf.
   # https://github.com/vcmi/vcmi/blob/develop/CI/linux/before_install.sh
   - name: boost
