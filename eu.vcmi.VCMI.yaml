@@ -80,6 +80,7 @@ modules:
 
   - name: onetbb
     buildsystem: cmake-ninja
+    builddir: true
     config-opts:
       - -Wno-dev
     sources:
