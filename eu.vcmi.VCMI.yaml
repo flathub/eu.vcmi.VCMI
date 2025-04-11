@@ -42,14 +42,14 @@ modules:
       - ./b2
       - ./b2 install
     sources:
-      - sha256: af57be25cb4c4f4b413ed692fe378affb4352ea50fbe294a11ef548f4d527d89
+      - sha256: 3621533e820dcab1e8012afd583c0c73cf0f77694952b81352bf38c1488f9cb4
         type: archive
-        url: https://archives.boost.io/release/1.87.0/source/boost_1_87_0.tar.bz2
+        url: https://archives.boost.io/release/1.88.0/source/boost_1_88_0.tar.gz
         x-checker-data:
           type: anitya
           project-id: 6845
           stable-only: true
-          url-template: https://archives.boost.io/release/$version/source/boost_${major}_${minor}_$patch.tar.bz2
+          url-template: https://archives.boost.io/release/$version/source/boost_${major}_${minor}_$patch.tar.gz
 
   - name: minizip
     subdir: contrib/minizip
@@ -80,12 +80,13 @@ modules:
 
   - name: onetbb
     buildsystem: cmake-ninja
+    builddir: true
     config-opts:
       - -Wno-dev
     sources:
       - type: archive
-        url: https://github.com/oneapi-src/oneTBB/archive/refs/tags/v2022.0.0.tar.gz
-        sha256: e8e89c9c345415b17b30a2db3095ba9d47647611662073f7fbf54ad48b7f3c2a
+        url: https://github.com/oneapi-src/oneTBB/archive/refs/tags/v2022.1.0.tar.gz
+        sha256: ed067603ece0dc832d2881ba5c516625ac2522c665d95f767ef6304e34f961b5
         x-checker-data:
           type: anitya
           project-id: 227581
@@ -117,8 +118,8 @@ modules:
     buildsystem: cmake-ninja
     sources:
       - type: archive
-        url: https://github.com/twogood/unshield/archive/refs/tags/1.6.0.tar.gz
-        sha256: c3974a906ddbdc2805b3f6b36cb01f11fe0ede7a7702514acb2ad4a66ec7ae62
+        url: https://github.com/twogood/unshield/archive/refs/tags/1.6.2.tar.gz
+        sha256: a937ef596ad94d16e7ed2c8553ad7be305798dcdcfd65ae60210b1e54ab51a2f
         x-checker-data:
           type: anitya
           project-id: 16008
