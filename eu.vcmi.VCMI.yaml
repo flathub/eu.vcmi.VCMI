@@ -42,14 +42,14 @@ modules:
       - ./b2
       - ./b2 install
     sources:
-      - sha256: 3621533e820dcab1e8012afd583c0c73cf0f77694952b81352bf38c1488f9cb4
+      - sha256: 8ee21476f1aca1978339f0f4a218b9b8a6746eec83070f32630f97b09c7e91b7
         type: archive
-        url: https://archives.boost.io/release/1.88.0/source/boost_1_88_0.tar.gz
+        url: https://archives.boost.io/release/1.88.0/source/boost_1_88_0.zip
         x-checker-data:
           type: anitya
           project-id: 6845
           stable-only: true
-          url-template: https://archives.boost.io/release/$version/source/boost_${major}_${minor}_$patch.tar.gz
+          url-template: https://archives.boost.io/release/$version/source/boost_${major}_${minor}_$patch.zip
 
   - name: minizip
     subdir: contrib/minizip
