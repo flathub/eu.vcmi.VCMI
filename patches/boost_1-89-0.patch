@@ -14,9 +14,27 @@ index f4407bee0..9df63a563 100644
  if(ENABLE_INNOEXTRACT)
  	list(APPEND BOOST_COMPONENTS iostreams)
  endif()
-diff --git a/launcher/lib/innoextract b/launcher/lib/innoextract
---- a/launcher/lib/innoextract
-+++ b/launcher/lib/innoextract
-@@ -1 +1 @@
--Subproject commit 9977089412ebafe9f79936aa65a2edf16a84ae3e
-+Subproject commit 9977089412ebafe9f79936aa65a2edf16a84ae3e-dirty
+Submodule launcher/lib/innoextract contains modified content
+diff --git a/launcher/lib/innoextract/CMakeLists.txt b/launcher/lib/innoextract/CMakeLists.txt
+index 491610a..172bd32 100644
+--- a/launcher/lib/innoextract/CMakeLists.txt
++++ b/launcher/lib/innoextract/CMakeLists.txt
+@@ -160,13 +160,16 @@ else()
+ 	set(INNOEXTRACT_HAVE_LZMA 0)
+ endif()
+ 
+-find_package(Boost REQUIRED COMPONENTS
++set(BOOST_REQUIRED_COMPONENTS
+ 	iostreams
+ 	filesystem
+ 	date_time
+-	system
+ 	program_options
+ )
++if(Boost_MAJOR_VERSION EQUAL 1 AND Boost_MINOR_VERSION LESS 69)
++	list(APPEND BOOST_REQUIRED_COMPONENTS system)
++endif()
++find_package(Boost REQUIRED COMPONENTS ${BOOST_REQUIRED_COMPONENTS})
+ list(APPEND LIBRARIES ${Boost_LIBRARIES})
+ link_directories(${Boost_LIBRARY_DIRS})
+ include_directories(SYSTEM ${Boost_INCLUDE_DIR})
