@@ -1,0 +1,22 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index f4407bee0..9df63a563 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -462,7 +462,10 @@ endif()
+ #        Finding packages                  #
+ ############################################
+ 
+-set(BOOST_COMPONENTS date_time filesystem locale program_options system thread)
++set(BOOST_COMPONENTS date_time filesystem locale program_options thread)
++if(Boost_MAJOR_VERSION EQUAL 1 AND Boost_MINOR_VERSION LESS 69)
++	list(APPEND BOOST_COMPONENTS system)
++endif()
+ if(ENABLE_INNOEXTRACT)
+ 	list(APPEND BOOST_COMPONENTS iostreams)
+ endif()
+diff --git a/launcher/lib/innoextract b/launcher/lib/innoextract
+--- a/launcher/lib/innoextract
++++ b/launcher/lib/innoextract
+@@ -1 +1 @@
+-Subproject commit 9977089412ebafe9f79936aa65a2edf16a84ae3e
++Subproject commit 9977089412ebafe9f79936aa65a2edf16a84ae3e-dirty
