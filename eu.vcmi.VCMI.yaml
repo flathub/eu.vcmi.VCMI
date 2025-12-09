@@ -19,6 +19,8 @@ add-extensions:
     add-ld-path: .
     no-autodownload: false
     autodelete: false
+  org.freedesktop.Sdk.Extension.sdl2:
+    version: '2.32.58'
 cleanup:
   - /include
   - /lib/cmake
