@@ -94,6 +94,8 @@ modules:
           stable-only: true
           url-template: https://github.com/oneapi-src/oneTBB/archive/refs/tags/v$version.tar.gz
 
+  - shared-modules/SDL2/SDL2_image.json
+  - shared-modules/SDL2/SDL2_ttf.json
   - shared-modules/luajit/luajit.json
 
   - name: catch2 # dependency of fuzzylite
