@@ -83,6 +83,7 @@ modules:
     builddir: true
     config-opts:
       - -Wno-dev
+      - -DTBB_TEST=OFF
     sources:
       - type: archive
         url: https://github.com/oneapi-src/oneTBB/archive/refs/tags/v2022.3.0.tar.gz
