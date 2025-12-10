@@ -1,6 +1,6 @@
 app-id: eu.vcmi.VCMI
 runtime: org.kde.Platform
-runtime-version: '6.8'
+runtime-version: '6.10'
 sdk: org.kde.Sdk
 rename-desktop-file: vcmilauncher.desktop
 rename-icon: vcmiclient
@@ -15,7 +15,7 @@ finish-args:
 add-extensions:
   org.freedesktop.Platform.ffmpeg-full:
     directory: lib/ffmpeg
-    version: '24.08'
+    version: '25.08'
     add-ld-path: .
     no-autodownload: false
     autodelete: false
@@ -83,6 +83,7 @@ modules:
     builddir: true
     config-opts:
       - -Wno-dev
+      - -DTBB_TEST=OFF
     sources:
       - type: archive
         url: https://github.com/oneapi-src/oneTBB/archive/refs/tags/v2022.3.0.tar.gz
@@ -93,6 +94,8 @@ modules:
           stable-only: true
           url-template: https://github.com/oneapi-src/oneTBB/archive/refs/tags/v$version.tar.gz
 
+  - shared-modules/SDL2/SDL2_image.json
+  - shared-modules/SDL2/SDL2_ttf.json
   - shared-modules/luajit/luajit.json
 
   - name: catch2 # dependency of fuzzylite
