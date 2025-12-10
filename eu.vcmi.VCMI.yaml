@@ -147,6 +147,43 @@ modules:
         url: https://github.com/jgm/pandoc/releases/download/2.13/pandoc-2.13-linux-arm64.tar.gz
         sha256: 4f87bfe8a0a626ad0e17d26d42e99a1c0ed7d369cca00366c1b3d97525f57db5
 
+  - name: libsquish
+    buildsystem: cmake-ninja
+    config-opts:
+      - -DCMAKE_POLICY_VERSION_MINIMUM=3.5
+      - -DBUILD_SQUISH_WITH_OPENMP=ON
+      - -DBUILD_SHARED_LIBS=ON
+    build-options:
+      arch:
+        x86_64:
+          config-opts:
+            - -DBUILD_SQUISH_WITH_SSE2=ON
+        aarch64:
+          config-opts:
+            - -DBUILD_SQUISH_WITH_SSE2=OFF
+    sources:
+      - type: archive
+        url: https://downloads.sourceforge.net/project/libsquish/libsquish-1.15.tgz
+        sha256: 628796eeba608866183a61d080d46967c9dda6723bc0a3ec52324c85d2147269
+        strip-components: 0
+
+  - name: libonnxruntime
+    buildsystem: simple
+    build-commands:
+      - cp -r --no-target-directory ./include /app/include
+      - cp -r --no-target-directory ./lib /app/lib
+    sources:
+      - type: archive
+        url: https://github.com/microsoft/onnxruntime/releases/download/v1.18.1/onnxruntime-linux-x64-1.18.1.tgz
+        sha256: a0994512ec1e1debc00c18bfc7a5f16249f6ebd6a6128ff2034464cc380ea211
+        only-arches:
+          - x86_64
+      - type: archive
+        url: https://github.com/microsoft/onnxruntime/releases/download/v1.18.1/onnxruntime-linux-aarch64-1.18.1.tgz
+        sha256: c1dcd8ab29e8d227d886b6ee415c08aea893956acf98f0758a42a84f27c02851
+        only-arches:
+          - aarch64
+
   - name: vcmi
     buildsystem: cmake-ninja
     config-opts:
@@ -159,15 +196,13 @@ modules:
     sources:
       - type: git
         url: https://github.com/vcmi/vcmi
-        commit: a92e29e008049e09ceaf896b162e439a6d9ca3f3
+        commit: e3529953bfc587ab244a02ed0520535cd0a3a750
         x-checker-data:
           type: anitya
           project-id: 5456
           stable-only: true
           tag-template: $version
-        tag: 1.6.8
-      - type: patch
-        path: patches/boost_1-89-0.patch
+        tag: 1.7.0
       - type: file
         path: add_changelog_to_metainfo.py
     post-install:
