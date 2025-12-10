@@ -42,9 +42,9 @@ modules:
       - ./b2
       - ./b2 install
     sources:
-      - sha256: 77bee48e32cabab96a3fd2589ec3ab9a17798d330220fdd8bde6ff5611b4ccde
+      - sha256: bdc79f179d1a4a60c10fe764172946d0eeafad65e576a8703c4d89d49949973c
         type: archive
-        url: https://archives.boost.io/release/1.89.0/source/boost_1_89_0.zip
+        url: https://archives.boost.io/release/1.90.0/source/boost_1_90_0.zip
         x-checker-data:
           type: anitya
           project-id: 6845
