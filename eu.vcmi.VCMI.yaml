@@ -168,8 +168,6 @@ modules:
         #  stable-only: true
         #  tag-template: $version
         #tag: 1.6.8
-      - type: patch
-        path: patches/boost_1-89-0.patch
       - type: file
         path: add_changelog_to_metainfo.py
     post-install:
