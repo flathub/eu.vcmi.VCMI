@@ -192,6 +192,7 @@ modules:
       - -DLIB_DIR=lib
       - -DENABLE_TEST=0
       - -DENABLE_GOLDMASTER=ON
+      - -DENABLE_STATIC_LIBS=ON
       - -Wno-dev
     sources:
       - type: git
