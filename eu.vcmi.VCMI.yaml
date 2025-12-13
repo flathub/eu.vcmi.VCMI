@@ -192,12 +192,11 @@ modules:
       - -DLIB_DIR=lib
       - -DENABLE_TEST=0
       - -DENABLE_GOLDMASTER=ON
-      - -DENABLE_STATIC_LIBS=ON
       - -Wno-dev
     sources:
       - type: git
         url: https://github.com/Laserlicht/vcmi
-        commit: 747e5420fdf2c836c39a026a7141aa971fadeae7
+        commit: 5c788b9b900b7f1b849dbdafe6d384a0238aeb14
         #url: https://github.com/vcmi/vcmi
         #commit: a92e29e008049e09ceaf896b162e439a6d9ca3f3
         #x-checker-data:
