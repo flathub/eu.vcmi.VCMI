@@ -197,7 +197,7 @@ modules:
     sources:
       - type: git
         url: https://github.com/Laserlicht/vcmi
-        commit: bae709436e1372ebb0116a0b28656a17d5c1da28
+        commit: 747e5420fdf2c836c39a026a7141aa971fadeae7
         #url: https://github.com/vcmi/vcmi
         #commit: a92e29e008049e09ceaf896b162e439a6d9ca3f3
         #x-checker-data:
