@@ -202,8 +202,7 @@ modules:
           project-id: 5456
           stable-only: true
           tag-template: $version
-        #tag: 1.7.0
-        tag: 1.6.8
+        tag: 1.7.0
       - type: file
         path: add_changelog_to_metainfo.py
     post-install:
