@@ -139,13 +139,23 @@ modules:
       - type: archive
         only-arches:
           - x86_64
-        url: https://github.com/jgm/pandoc/releases/download/2.13/pandoc-2.13-linux-amd64.tar.gz
-        sha256: 7404aa88a6eb9fbb99d9803b80170a3a546f51959230cc529c66a2ce6b950d4c
+        url: https://github.com/jgm/pandoc/releases/download/3.8.3/pandoc-3.8.3-linux-amd64.tar.gz
+        sha256: c224fab89f827d3623380ecb7c1078c163c769c849a14ac27e8d3bfbb914c9b4
+        x-checker-data:
+          type: anitya
+          project-id: 2589
+          stable-only: true
+          url-template: https://github.com/jgm/pandoc/releases/download/$version/pandoc-$version-linux-amd64.tar.gz
       - type: archive
         only-arches:
           - aarch64
-        url: https://github.com/jgm/pandoc/releases/download/2.13/pandoc-2.13-linux-arm64.tar.gz
-        sha256: 4f87bfe8a0a626ad0e17d26d42e99a1c0ed7d369cca00366c1b3d97525f57db5
+        url: https://github.com/jgm/pandoc/releases/download/3.8.3/pandoc-3.8.3-linux-arm64.tar.gz
+        sha256: 166a5a37387eb10bd4c4f242a8109beef755ac1e8d4eb039c6b5ebd1d918d8d7
+        x-checker-data:
+          type: anitya
+          project-id: 2589
+          stable-only: true
+          url-template: https://github.com/jgm/pandoc/releases/download/$version/pandoc-$version-linux-arm64.tar.gz
 
   - name: libsquish
     buildsystem: cmake-ninja
@@ -166,6 +176,11 @@ modules:
         url: https://downloads.sourceforge.net/project/libsquish/libsquish-1.15.tgz
         sha256: 628796eeba608866183a61d080d46967c9dda6723bc0a3ec52324c85d2147269
         strip-components: 0
+        x-checker-data:
+          type: anitya
+          project-id: 21493
+          stable-only: true
+          url-template: https://downloads.sourceforge.net/project/libsquish/libsquish-$version.tgz
 
   - name: libonnxruntime
     buildsystem: simple
@@ -178,11 +193,27 @@ modules:
         sha256: a0994512ec1e1debc00c18bfc7a5f16249f6ebd6a6128ff2034464cc380ea211
         only-arches:
           - x86_64
+        x-checker-data:
+          type: json
+          url: https://api.github.com/repos/microsoft/onnxruntime/releases/latest
+          version-query: .tag_name | sub("^v"; "")
+          url-query: >
+            .assets[]
+            | select(.name | test("onnxruntime-linux-x64-.*\\.tgz$"))
+            | .browser_download_url
       - type: archive
         url: https://github.com/microsoft/onnxruntime/releases/download/v1.18.1/onnxruntime-linux-aarch64-1.18.1.tgz
         sha256: c1dcd8ab29e8d227d886b6ee415c08aea893956acf98f0758a42a84f27c02851
         only-arches:
           - aarch64
+        x-checker-data:
+            type: json
+            url: https://api.github.com/repos/microsoft/onnxruntime/releases/latest
+            version-query: .tag_name | sub("^v"; "")
+            url-query: >
+              .assets[]
+              | select(.name | test("onnxruntime-linux-aarch64-.*\\.tgz$"))
+              | .browser_download_url
 
   - name: vcmi
     buildsystem: cmake-ninja
