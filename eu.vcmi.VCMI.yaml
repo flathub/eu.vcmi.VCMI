@@ -227,7 +227,7 @@ modules:
     sources:
       - type: git
         url: https://github.com/Laserlicht/vcmi
-        commit: 2addbc49cda1a5506d2da602989f4164047e4451
+        commit: 20e80e0cd842cc039195e70d71c6deed155b58f2
        # x-checker-data:
        #   type: anitya
         #  project-id: 5456
