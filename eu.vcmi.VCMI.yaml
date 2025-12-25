@@ -199,7 +199,7 @@ modules:
           version-query: .tag_name | sub("^v"; "")
           url-query: >
             .assets[]
-            | select(.name | test("onnxruntime-linux-x64-.*\\.tgz$"))
+            | select(.name == ("onnxruntime-linux-x64-" + $version + ".tgz"))
             | .browser_download_url
       - type: archive
         url: https://github.com/microsoft/onnxruntime/releases/download/v1.23.2/onnxruntime-linux-aarch64-1.23.2.tgz
