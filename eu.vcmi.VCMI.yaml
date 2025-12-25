@@ -226,14 +226,14 @@ modules:
       - -Wno-dev
     sources:
       - type: git
-        url: https://github.com/vcmi/vcmi
-        commit: e3529953bfc587ab244a02ed0520535cd0a3a750
-        x-checker-data:
-          type: anitya
-          project-id: 5456
-          stable-only: true
-          tag-template: $version
-        tag: 1.7.0
+        url: https://github.com/Laserlicht/vcmi
+        commit: 2addbc49cda1a5506d2da602989f4164047e4451
+       # x-checker-data:
+       #   type: anitya
+        #  project-id: 5456
+       #   stable-only: true
+        #  tag-template: $version
+        #tag: 1.7.0
       - type: file
         path: add_changelog_to_metainfo.py
     post-install:
