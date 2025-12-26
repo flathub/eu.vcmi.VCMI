@@ -189,8 +189,8 @@ modules:
       - cp -r --no-target-directory ./lib /app/lib
     sources:
       - type: archive
-        url: https://github.com/microsoft/onnxruntime/releases/download/v1.18.1/onnxruntime-linux-x64-1.18.1.tgz
-        sha256: a0994512ec1e1debc00c18bfc7a5f16249f6ebd6a6128ff2034464cc380ea211
+        url: https://github.com/microsoft/onnxruntime/releases/download/v1.23.2/onnxruntime-linux-x64-1.23.2.tgz
+        sha256: 1fa4dcaef22f6f7d5cd81b28c2800414350c10116f5fdd46a2160082551c5f9b
         only-arches:
           - x86_64
         x-checker-data:
