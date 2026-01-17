@@ -12,13 +12,6 @@ finish-args:
   - --socket=pulseaudio
   - --share=network
   - --device=all # gamepad and dri
-add-extensions:
-  org.freedesktop.Platform.ffmpeg-full:
-    directory: lib/ffmpeg
-    version: '25.08'
-    add-ld-path: .
-    no-autodownload: false
-    autodelete: false
 cleanup:
   - /include
   - /lib/cmake
@@ -30,8 +23,6 @@ cleanup:
   - /share/fuzzylite
   - /share/man
   - /share/bash-completion
-cleanup-commands:
-  - mkdir -p /app/lib/ffmpeg
 modules:
   # For dependencies cf.
   # https://github.com/vcmi/vcmi/blob/develop/CI/linux/before_install.sh
