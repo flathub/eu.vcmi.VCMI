@@ -1,0 +1,23 @@
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -3,7 +3,6 @@ cmake_minimum_required(VERSION 3.21)
+ project(discord-rpc)
+ 
+ set(CMAKE_CXX_STANDARD 23)
+-include(cmake/CPM.cmake)
+ 
+ add_library(${PROJECT_NAME} STATIC src/discord-rpc.cpp src/serialization.cpp src/command-queue.cpp)
+ target_include_directories(${PROJECT_NAME} PUBLIC include)
+@@ -15,10 +14,10 @@ if (WIN32)
+ endif()
+ 
+ if (NOT TARGET fmt::fmt)
+-  CPMAddPackage("gh:fmtlib/fmt#11.2.0")
++  find_package(fmt REQUIRED)
+ endif()
+ if (NOT TARGET glaze::glaze)
+-  CPMAddPackage("gh:stephenberry/glaze@5.5.4")
++  find_package(glaze REQUIRED)
+ endif()
+ 
+ target_link_libraries(${PROJECT_NAME} PRIVATE fmt glaze::glaze)
