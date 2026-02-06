@@ -250,8 +250,8 @@ modules:
       - -Wno-dev
     sources:
       - type: git
-        url: https://github.com/vcmi/vcmi
-        commit: cab43826f3a11b9624a5794b8e28b39bb82c3f8d
+        url: https://github.com/Laserlicht/vcmi
+        commit: 4b980fcec6ed9e3ddffabfda74c601c3e3a578b9
         x-checker-data:
           type: anitya
           project-id: 5456
@@ -259,11 +259,6 @@ modules:
           tag-template: $version
       - type: file
         path: add_changelog_to_metainfo.py
-      - type: patch
-        path: discord-cpm.patch # remove cpm
-        options:
-          - -d
-          - client/lib/discord-presence
       
     post-install:
       - cp /app/share/applications/vcmieditor.desktop /app/share/applications/eu.vcmi.VCMI.editor.desktop
