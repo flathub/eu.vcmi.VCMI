@@ -58,17 +58,6 @@ modules:
           - rm contrib/minizip/Makefile
           - cd contrib/minizip && autoreconf --install
 
-  - name: hwloc
-    sources:
-      - sha256: 563e61d70febb514138af0fac36b97621e01a4aacbca07b86e7bd95b85055ba0
-        type: archive
-        url: https://download.open-mpi.org/release/hwloc/v2.12/hwloc-2.12.2.tar.bz2
-        x-checker-data:
-          type: anitya
-          project-id: 13501
-          stable-only: true
-          url-template: https://download.open-mpi.org/release/hwloc/v${major}.${minor}/hwloc-${major}.${minor}.$patch.tar.bz2
-
   - name: onetbb
     buildsystem: cmake-ninja
     builddir: true
