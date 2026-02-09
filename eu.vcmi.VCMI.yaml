@@ -250,8 +250,8 @@ modules:
       - -Wno-dev
     sources:
       - type: git
-        url: https://github.com/vcmi/vcmi
-        commit: 4e2acc8e074e93af389eccc3c0bc4514143af46c
+        url: https://github.com/Laserlicht/vcmi
+        commit: 0bf8b7187ab31305c93d177e9a0f1d09ab2edf09
         x-checker-data:
           type: anitya
           project-id: 5456
