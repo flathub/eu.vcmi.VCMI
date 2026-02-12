@@ -12,6 +12,9 @@ finish-args:
   - --socket=pulseaudio
   - --share=network
   - --device=all # gamepad and dri
+  # Allow access to Discord rich presence.
+  - --filesystem=xdg-run/app/com.discordapp.Discord:create
+  - --filesystem=xdg-run/discord-ipc-0
 cleanup:
   - /include
   - /lib/cmake
@@ -165,8 +168,9 @@ modules:
   - name: libonnxruntime
     buildsystem: simple
     build-commands:
-      - cp -r --no-target-directory ./include /app/include
-      - cp -r --no-target-directory ./lib /app/lib
+      - mkdir -p /app/include/onnxruntime
+      - cp -r --no-target-directory ./include /app/include/onnxruntime
+      - cp -r --no-target-directory ./lib /app/lib64
     sources:
       - type: archive
         url: https://github.com/microsoft/onnxruntime/releases/download/v1.24.1/onnxruntime-linux-x64-1.24.1.tgz
@@ -195,6 +199,35 @@ modules:
             | select(.name | test("onnxruntime-linux-aarch64-.*\\.tgz$"))
             | .browser_download_url
 
+  - name: fmt
+    buildsystem: cmake-ninja
+    config-opts:
+      - -DFMT_TEST=Off
+    cleanup:
+      - '*'
+    sources:
+      - type: archive
+        url: https://github.com/fmtlib/fmt/archive/12.1.0.tar.gz
+        sha256: ea7de4299689e12b6dddd392f9896f08fb0777ac7168897a244a6d6085043fea
+        x-checker-data:
+          type: anitya
+          project-id: 11526
+          url-template: https://github.com/fmtlib/fmt/archive/$version.tar.gz
+
+  - name: glaze
+    buildsystem: cmake-ninja
+    config-opts:
+      - -DBUILD_TESTING=OFF
+    builddir: true
+    sources:
+      - type: archive
+        url: https://github.com/stephenberry/glaze/archive/v7.0.2.tar.gz
+        sha256: febbec555648b310c2a1975ca750939cd00c4801dede8362fcf84cab7b3ae46f
+        x-checker-data:
+          type: anitya
+          project-id: 377101
+          url-template: https://github.com/stephenberry/glaze/archive/v$version.tar.gz
+
   - name: vcmi
     buildsystem: cmake-ninja
     config-opts:
@@ -207,13 +240,13 @@ modules:
     sources:
       - type: git
         url: https://github.com/vcmi/vcmi
-        commit: 476d6763947305a5bc2e21c8c6f9bb253915bdef
+        commit: 112084052a75653695f578a88410c4c235540306
         x-checker-data:
           type: anitya
           project-id: 5456
           stable-only: true
           tag-template: $version
-        tag: 1.7.1
+        tag: 1.7.2
       - type: file
         path: add_changelog_to_metainfo.py
     post-install:
