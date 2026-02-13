@@ -240,7 +240,7 @@ modules:
     sources:
       - type: git
         url: https://github.com/vcmi/vcmi
-        commit: 112084052a75653695f578a88410c4c235540306
+        commit: b02a52ff2645c66a743e81b3cb3b160f50105bf7
         x-checker-data:
           type: anitya
           project-id: 5456
