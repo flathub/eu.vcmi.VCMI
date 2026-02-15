@@ -173,31 +173,31 @@ modules:
       - cp -r --no-target-directory ./lib /app/lib64
     sources:
       - type: archive
-        url: https://github.com/microsoft/onnxruntime/releases/download/v1.18.1/onnxruntime-linux-x64-1.18.1.tgz
-        sha256: a0994512ec1e1debc00c18bfc7a5f16249f6ebd6a6128ff2034464cc380ea211
+        url: https://github.com/microsoft/onnxruntime/releases/download/v1.24.1/onnxruntime-linux-x64-1.24.1.tgz
+        sha256: 9142552248b735920f9390027e4512a2cacf8946a1ffcbe9071a5c210531026f
         only-arches:
           - x86_64
-        #x-checker-data:
-        #  type: json
-        #  url: https://api.github.com/repos/microsoft/onnxruntime/releases/latest
-        #  version-query: .tag_name | sub("^v"; "")
-        #  url-query: >
-        #    .assets[]
-        #    | select(.name == ("onnxruntime-linux-x64-" + $version + ".tgz"))
-        #    | .browser_download_url
+        x-checker-data:
+          type: json
+          url: https://api.github.com/repos/microsoft/onnxruntime/releases/latest
+          version-query: .tag_name | sub("^v"; "")
+          url-query: >
+            .assets[]
+            | select(.name == ("onnxruntime-linux-x64-" + $version + ".tgz"))
+            | .browser_download_url
       - type: archive
-        url: https://github.com/microsoft/onnxruntime/releases/download/v1.18.1/onnxruntime-linux-aarch64-1.18.1.tgz
-        sha256: c1dcd8ab29e8d227d886b6ee415c08aea893956acf98f0758a42a84f27c02851
+        url: https://github.com/microsoft/onnxruntime/releases/download/v1.24.1/onnxruntime-linux-aarch64-1.24.1.tgz
+        sha256: 0f56edd68f7602df790b68b874a46b115add037e88385c6c842bb763b39b9f89
         only-arches:
           - aarch64
-        #x-checker-data:
-        #  type: json
-        #  url: https://api.github.com/repos/microsoft/onnxruntime/releases/latest
-        #  version-query: .tag_name | sub("^v"; "")
-        #  url-query: >
-        #    .assets[]
-        #    | select(.name | test("onnxruntime-linux-aarch64-.*\\.tgz$"))
-        #    | .browser_download_url
+        x-checker-data:
+          type: json
+          url: https://api.github.com/repos/microsoft/onnxruntime/releases/latest
+          version-query: .tag_name | sub("^v"; "")
+          url-query: >
+            .assets[]
+            | select(.name | test("onnxruntime-linux-aarch64-.*\\.tgz$"))
+            | .browser_download_url
 
   - name: glaze
     buildsystem: cmake-ninja
@@ -221,6 +221,7 @@ modules:
       - -DLIB_DIR=lib
       - -DENABLE_TEST=0
       - -DENABLE_GOLDMASTER=ON
+      - -DENABLE_STATIC_LIBS=ON
       - -Wno-dev
     sources:
       - type: git
