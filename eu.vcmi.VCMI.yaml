@@ -208,8 +208,8 @@ modules:
     builddir: true
     sources:
       - type: archive
-        url: https://github.com/stephenberry/glaze/archive/v7.0.2.tar.gz
-        sha256: febbec555648b310c2a1975ca750939cd00c4801dede8362fcf84cab7b3ae46f
+        url: https://github.com/stephenberry/glaze/archive/v7.1.0.tar.gz
+        sha256: 39bbd40f6a81e7b56489cf96f768195563f36cf80bdfe74c3a95a228402af298
         x-checker-data:
           type: anitya
           project-id: 377101
@@ -227,13 +227,13 @@ modules:
     sources:
       - type: git
         url: https://github.com/vcmi/vcmi
-        commit: f176c6d7002b64dad7be64e963999b5cb668c088
+        commit: d9c2c7e95cc6ca2aeabd7dd002a84f9edbcdf67e
         x-checker-data:
           type: anitya
           project-id: 5456
           stable-only: true
           tag-template: $version
-        #tag: 1.7.2
+        tag: 1.7.3
       - type: file
         path: add_changelog_to_metainfo.py
     post-install:
