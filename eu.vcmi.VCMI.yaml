@@ -48,9 +48,9 @@ modules:
   - name: minizip
     subdir: contrib/minizip
     sources:
-      - sha256: d7a0654783a4da529d1bb793b7ad9c3318020af77667bcae35f95d0e42a792f3
+      - sha256: 38ef96b8dfe510d42707d9c781877914792541133e1870841463bfa73f883e32
         type: archive
-        url: https://zlib.net/zlib-1.3.2.tar.xz
+        url: https://zlib.net/zlib-1.3.1.tar.xz
         x-checker-data:
           type: anitya
           project-id: 5303
@@ -227,14 +227,13 @@ modules:
     sources:
       - type: git
         url: https://github.com/vcmi/vcmi
-        commit: b02a52ff2645c66a743e81b3cb3b160f50105bf7
+        commit: d9c2c7e95cc6ca2aeabd7dd002a84f9edbcdf67e
         x-checker-data:
           type: anitya
           project-id: 5456
           stable-only: true
           tag-template: $version
-        #tag: 1.7.2
-        tag: 1.7.2
+        tag: 1.7.3
       - type: file
         path: add_changelog_to_metainfo.py
     post-install:
