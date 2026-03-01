@@ -48,9 +48,9 @@ modules:
   - name: minizip
     subdir: contrib/minizip
     sources:
-      - sha256: 38ef96b8dfe510d42707d9c781877914792541133e1870841463bfa73f883e32
+      - sha256: d7a0654783a4da529d1bb793b7ad9c3318020af77667bcae35f95d0e42a792f3
         type: archive
-        url: https://zlib.net/zlib-1.3.1.tar.xz
+        url: https://zlib.net/zlib-1.3.2.tar.xz
         x-checker-data:
           type: anitya
           project-id: 5303
@@ -208,8 +208,8 @@ modules:
     builddir: true
     sources:
       - type: archive
-        url: https://github.com/stephenberry/glaze/archive/v7.0.2.tar.gz
-        sha256: febbec555648b310c2a1975ca750939cd00c4801dede8362fcf84cab7b3ae46f
+        url: https://github.com/stephenberry/glaze/archive/v7.1.0.tar.gz
+        sha256: 39bbd40f6a81e7b56489cf96f768195563f36cf80bdfe74c3a95a228402af298
         x-checker-data:
           type: anitya
           project-id: 377101
@@ -227,13 +227,14 @@ modules:
     sources:
       - type: git
         url: https://github.com/vcmi/vcmi
-        commit: f176c6d7002b64dad7be64e963999b5cb668c088
+        commit: b02a52ff2645c66a743e81b3cb3b160f50105bf7
         x-checker-data:
           type: anitya
           project-id: 5456
           stable-only: true
           tag-template: $version
         #tag: 1.7.2
+        tag: 1.7.2
       - type: file
         path: add_changelog_to_metainfo.py
     post-install:
