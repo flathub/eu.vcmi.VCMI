@@ -175,8 +175,8 @@ modules:
       - cp -r --no-target-directory ./lib /app/lib
     sources:
       - type: archive
-        url: https://github.com/microsoft/onnxruntime/releases/download/v1.24.3/onnxruntime-linux-x64-1.24.3.tgz
-        sha256: 4c436a280d650f8bf32c921a2bf4de7c42cc32884c51c90e47de991708bbb5a4
+        url: https://github.com/microsoft/onnxruntime/releases/download/v1.24.4/onnxruntime-linux-x64-1.24.4.tgz
+        sha256: 3a211fbea252c1e66290658f1b735b772056149f28321e71c308942cdb54b747
         only-arches:
           - x86_64
         x-checker-data:
@@ -188,8 +188,8 @@ modules:
             | select(.name == ("onnxruntime-linux-x64-" + $version + ".tgz"))
             | .browser_download_url
       - type: archive
-        url: https://github.com/microsoft/onnxruntime/releases/download/v1.24.3/onnxruntime-linux-aarch64-1.24.3.tgz
-        sha256: 15100fb88b4c692cdd6bf2cca5f4a26a3806cebca8136de6681e2aba4b2ea033
+        url: https://github.com/microsoft/onnxruntime/releases/download/v1.24.4/onnxruntime-linux-aarch64-1.24.4.tgz
+        sha256: 866109a9248d057671a039b9d725be4bd86888e3754140e6701ec621be9d4d7e
         only-arches:
           - aarch64
         x-checker-data:
@@ -208,8 +208,8 @@ modules:
     builddir: true
     sources:
       - type: archive
-        url: https://github.com/stephenberry/glaze/archive/v7.2.0.tar.gz
-        sha256: 17dba19ae63ae48f94994f00d49d5cb3c8f1306db1046c534c4828662490b7d4
+        url: https://github.com/stephenberry/glaze/archive/v7.2.1.tar.gz
+        sha256: 9fe494c1f1850160aaafb4d3c3426618f92b3442c9deda9e6e347449f1196a43
         x-checker-data:
           type: anitya
           project-id: 377101
