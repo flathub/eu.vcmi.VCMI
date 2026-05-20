@@ -236,6 +236,12 @@ modules:
         tag: 1.7.4
       - type: file
         path: add_changelog_to_metainfo.py
+      - type: inline
+        dest: client/lib/discord-presence/cmake # CPM stub
+        dest-filename: CPM.cmake
+        contents: |
+          macro(CPMAddPackage)
+          endmacro()
     post-install:
       - cp /app/share/applications/vcmieditor.desktop /app/share/applications/eu.vcmi.VCMI.editor.desktop
       - sed -i 's|Icon=vcmieditor|Icon=eu.vcmi.VCMI.editor|' /app/share/applications/eu.vcmi.VCMI.editor.desktop
