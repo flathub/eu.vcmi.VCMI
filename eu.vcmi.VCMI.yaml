@@ -227,13 +227,13 @@ modules:
     sources:
       - type: git
         url: https://github.com/vcmi/vcmi
-        commit: d9c2c7e95cc6ca2aeabd7dd002a84f9edbcdf67e
+        commit: 9949b089a45338e00a62debe6f613c31cfd07ebe
         x-checker-data:
           type: anitya
           project-id: 5456
           stable-only: true
           tag-template: $version
-        tag: 1.7.3
+        tag: 1.7.4
       - type: file
         path: add_changelog_to_metainfo.py
     post-install:
