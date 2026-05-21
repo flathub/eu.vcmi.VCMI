@@ -1,4 +1,5 @@
 import os
+import re
 import xml.etree.ElementTree as ET
 
 # extract changelog of latest version
@@ -22,6 +23,10 @@ with open("ChangeLog.md", "r") as f:
                 if line.strip().endswith(":"):
                     line = line.replace(":","")
                 changelog_of_latest_version += line
+
+# remove angle-bracket wrapped content entirely, e.g. <https://...> or <anything>
+# since < and > are not allowed in AppStream description text
+changelog_of_latest_version = re.sub(r'<[^>]*>', '', changelog_of_latest_version)
 
 print(changelog_of_latest_version)
 with open("changelog_of_latest_version.md", "w") as f:
