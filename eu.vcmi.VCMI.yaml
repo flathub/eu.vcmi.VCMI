@@ -175,8 +175,8 @@ modules:
       - cp -r --no-target-directory ./lib /app/lib
     sources:
       - type: archive
-        url: https://github.com/microsoft/onnxruntime/releases/download/v1.28.0/onnxruntime-linux-x64-1.28.0.tgz
-        sha256: a3e1b79d7bb1bf09696ce675f49e4064e6c81f6202b8225624fff0e93f8d6407
+        url: https://github.com/microsoft/onnxruntime/releases/download/v1.29.0/onnxruntime-linux-x64-1.29.0.tgz
+        sha256: c3fddc4f139a045b0c4902c57410f0694f1c2fdf9b6939fbe38b1aeae7cd14ba
         only-arches:
           - x86_64
         x-checker-data:
@@ -188,8 +188,8 @@ modules:
             | select(.name == ("onnxruntime-linux-x64-" + $version + ".tgz"))
             | .browser_download_url
       - type: archive
-        url: https://github.com/microsoft/onnxruntime/releases/download/v1.28.0/onnxruntime-linux-aarch64-1.28.0.tgz
-        sha256: e15ff8b5d85afe6c144d97c6fd432254bf76a219daaf17658087d6ecb3e8f0bb
+        url: https://github.com/microsoft/onnxruntime/releases/download/v1.29.0/onnxruntime-linux-aarch64-1.29.0.tgz
+        sha256: e1799098ebc054b370f6176a450f158720f297818c613e5dc99b92e2ec82346f
         only-arches:
           - aarch64
         x-checker-data:
