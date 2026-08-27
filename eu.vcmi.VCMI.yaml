@@ -208,8 +208,8 @@ modules:
     builddir: true
     sources:
       - type: archive
-        url: https://github.com/stephenberry/glaze/archive/v8.1.0.tar.gz
-        sha256: 8cc479b53e4612fad2b4b74a079421d5ea897944e54a9ab5d1207cd68cf52b9b
+        url: https://github.com/stephenberry/glaze/archive/v8.2.0.tar.gz
+        sha256: dcc1f107cfa3be4094d306bc44b32907ae1331a0557809c16332e643678fe1df
         x-checker-data:
           type: anitya
           project-id: 377101
