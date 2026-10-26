@@ -352,7 +352,7 @@ modules:
     sources:
       - type: git
         url: https://github.com/vcmi/vcmi
-        commit: 77eee6cb12b04d0f68f3d970b64c1bf97bb1c374
+        commit: 46f2e15ec69e0507e6d0195d6357df5a2813dde1
       - type: file
         path: add_changelog_to_metainfo.py
       - type: inline
