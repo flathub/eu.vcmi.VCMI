@@ -32,7 +32,8 @@ modules:
   - name: boost
     buildsystem: simple
     build-commands:
-      - ./bootstrap.sh --prefix=/app --with-libraries=program_options,filesystem,thread,locale,date_time,atomic,iostreams
+      - ./bootstrap.sh --prefix=/app 
+        --with-libraries=program_options,filesystem,thread,locale,date_time,atomic,iostreams
       - ./b2
       - ./b2 install
     sources:
@@ -43,7 +44,8 @@ modules:
           type: anitya
           project-id: 6845
           stable-only: true
-          url-template: https://archives.boost.io/release/$version/source/boost_${major}_${minor}_$patch.zip
+          url-template: 
+            https://archives.boost.io/release/$version/source/boost_${major}_${minor}_$patch.zip
 
   - name: minizip
     subdir: contrib/minizip
@@ -69,8 +71,8 @@ modules:
       - -DTBB_TEST=OFF
     sources:
       - type: archive
-        url: https://github.com/oneapi-src/oneTBB/archive/refs/tags/v2023.1.0.tar.gz
-        sha256: 191288b52e1e6b17198000b64d77d194bb65e791be46ebc606e9b091781e2070
+        url: https://github.com/oneapi-src/oneTBB/archive/refs/tags/v2023.2.0.tar.gz
+        sha256: 80cb62e62defeee67ea1885a6f72d97ac81404f8fde9cded62fb51524808a30c
         x-checker-data:
           type: anitya
           project-id: 227581
@@ -122,23 +124,27 @@ modules:
       - type: archive
         only-arches:
           - x86_64
-        url: https://github.com/jgm/pandoc/releases/download/3.13/pandoc-3.13-linux-amd64.tar.gz
+        url: 
+          https://github.com/jgm/pandoc/releases/download/3.13/pandoc-3.13-linux-amd64.tar.gz
         sha256: 38aa33b325a2bc96a4c39409631212db55702f564250bcdbead180b3bf646389
         x-checker-data:
           type: anitya
           project-id: 2589
           stable-only: true
-          url-template: https://github.com/jgm/pandoc/releases/download/$version/pandoc-$version-linux-amd64.tar.gz
+          url-template: 
+            https://github.com/jgm/pandoc/releases/download/$version/pandoc-$version-linux-amd64.tar.gz
       - type: archive
         only-arches:
           - aarch64
-        url: https://github.com/jgm/pandoc/releases/download/3.13/pandoc-3.13-linux-arm64.tar.gz
+        url: 
+          https://github.com/jgm/pandoc/releases/download/3.13/pandoc-3.13-linux-arm64.tar.gz
         sha256: 21e1d4ba09bd0b334590d204580fd4f6629b21be4ab6a32b26cc98982e9e0c68
         x-checker-data:
           type: anitya
           project-id: 2589
           stable-only: true
-          url-template: https://github.com/jgm/pandoc/releases/download/$version/pandoc-$version-linux-arm64.tar.gz
+          url-template: 
+            https://github.com/jgm/pandoc/releases/download/$version/pandoc-$version-linux-arm64.tar.gz
 
   - name: libsquish
     buildsystem: cmake-ninja
@@ -175,7 +181,8 @@ modules:
       - cp -r --no-target-directory ./lib /app/lib
     sources:
       - type: archive
-        url: https://github.com/microsoft/onnxruntime/releases/download/v1.31.1/onnxruntime-linux-x64-1.31.1.tgz
+        url: 
+          https://github.com/microsoft/onnxruntime/releases/download/v1.31.1/onnxruntime-linux-x64-1.31.1.tgz
         sha256: c849e36a1ef3e22d4ff217b9d1ce4a3cf5b9467b975610913ae959ad5b16bdc9
         only-arches:
           - x86_64
@@ -188,7 +195,8 @@ modules:
             | select(.name == ("onnxruntime-linux-x64-" + $version + ".tgz"))
             | .browser_download_url
       - type: archive
-        url: https://github.com/microsoft/onnxruntime/releases/download/v1.31.1/onnxruntime-linux-aarch64-1.31.1.tgz
+        url: 
+          https://github.com/microsoft/onnxruntime/releases/download/v1.31.1/onnxruntime-linux-aarch64-1.31.1.tgz
         sha256: 5317505e2da99be65f8e2775ba3c2afd6d2961fd78aba1bd8f56159f48820c78
         only-arches:
           - aarch64
@@ -208,8 +216,8 @@ modules:
     builddir: true
     sources:
       - type: archive
-        url: https://github.com/stephenberry/glaze/archive/v9.0.0.tar.gz
-        sha256: dd7b033c5bf6e4308615bb7834c541291d5b20f64121d9a68222a39414635517
+        url: https://github.com/stephenberry/glaze/archive/v9.1.0.tar.gz
+        sha256: 55f8a675397c505f9bee6c160e1c26b0085868f185d04d7a7727531fdbff4bd4
         x-checker-data:
           type: anitya
           project-id: 377101
