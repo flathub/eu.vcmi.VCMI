@@ -182,8 +182,8 @@ modules:
     sources:
       - type: archive
         url: 
-          https://github.com/microsoft/onnxruntime/releases/download/v1.31.1/onnxruntime-linux-x64-1.31.1.tgz
-        sha256: c849e36a1ef3e22d4ff217b9d1ce4a3cf5b9467b975610913ae959ad5b16bdc9
+          https://github.com/microsoft/onnxruntime/releases/download/v1.32.0/onnxruntime-linux-x64-1.32.0.tgz
+        sha256: bb169b7e374731730d2ae406fb39de7be4b315f413a9132efe896261c31bb503
         only-arches:
           - x86_64
         x-checker-data:
@@ -196,8 +196,8 @@ modules:
             | .browser_download_url
       - type: archive
         url: 
-          https://github.com/microsoft/onnxruntime/releases/download/v1.31.1/onnxruntime-linux-aarch64-1.31.1.tgz
-        sha256: 5317505e2da99be65f8e2775ba3c2afd6d2961fd78aba1bd8f56159f48820c78
+          https://github.com/microsoft/onnxruntime/releases/download/v1.32.0/onnxruntime-linux-aarch64-1.32.0.tgz
+        sha256: 81a46251dd90da4122f4b9ceb4433f836fbc79ee1eddffca7c09033af81a1939
         only-arches:
           - aarch64
         x-checker-data:
